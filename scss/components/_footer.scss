@@ -1,0 +1,12 @@
+#footer {
+  height: 56px;
+  color: $text-light;
+  background-color: $bg-dark;
+
+  display: flex;
+  align-items: center;
+
+  .copyright {
+    font-size: 1.4rem;
+  }
+}
