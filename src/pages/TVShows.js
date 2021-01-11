@@ -1,15 +1,15 @@
 import React from 'react';
 
-const Home = () => {
+const TVShows = () => {
   return (
     <>
       <section>
         <div className='container'>
-          <h1>Home</h1>
+          <h1>TV Shows</h1>
         </div>
       </section>
     </>
   );
 };
 
-export default Home;
+export default TVShows;

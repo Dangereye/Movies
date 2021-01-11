@@ -1,7 +1,9 @@
 #footer {
-  height: 56px;
-  color: $text-light;
-  background-color: $bg-dark;
+  width: 100%;
+  min-height: $footerHeight;
+  padding: $pagePadding;
+  color: $textLight;
+  background-color: $bgDark;
 
   display: flex;
   align-items: center;

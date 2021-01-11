@@ -1,3 +1,22 @@
-$text-light: #ccc;
-$bg-light: rgb(245, 245, 245);
-$bg-dark: #000;
+// -- COLOURS --
+// text
+$textLight: #ccc;
+
+// backgrounds
+$bgLight: rgb(245, 245, 245);
+$bgGrey: rgb(222, 222, 222);
+$bgDark: #000;
+
+// -- SIZES --
+// elements
+$navHeight: 56px;
+$pageWidth: 1024px;
+$footerHeight: 56px;
+$sectionMinHeight: calc(100vh - (56px + 56px));
+
+// text
+$fontSize: clamp(1.6rem, 2.5vw, 2rem);
+
+// -- PADDING --
+$pagePadding: 0 1.6rem;
+$containerPadding: clamp(2rem, 2.5vw, 4rem) 0;

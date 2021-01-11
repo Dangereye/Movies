@@ -1,8 +1,8 @@
 #navbar {
   width: 100%;
-  height: 56px;
+  min-height: $navHeight;
   padding: 0 clamp(1.6rem, 2.5vw, 4rem);
-  color: $text-light;
+  color: $textLight;
 
   position: fixed;
   top: 0;
@@ -11,10 +11,32 @@
   display: flex;
   align-items: center;
 
-  background-color: #000;
+  background-color: $bgDark;
 
-  .logo {
+  .container {
+    width: 100%;
     display: flex;
+    justify-content: space-between;
     align-items: center;
+
+    .logo {
+      display: flex;
+      align-items: center;
+      color: $textLight;
+    }
+
+    .links {
+      display: flex;
+      align-items: center;
+
+      > .link-item:not(:last-child) {
+        margin-right: 2rem;
+      }
+      .link-item {
+        .link {
+          color: $textLight;
+        }
+      }
+    }
   }
 }

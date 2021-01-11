@@ -1,0 +1,16 @@
+.categories {
+  padding: 1rem $pagePadding;
+  background-color: $bgGrey;
+  ul {
+    display: flex;
+    align-items: center;
+
+    > li:not(:last-child) {
+      margin-right: 2rem;
+    }
+
+    li {
+      cursor: pointer;
+    }
+  }
+}
