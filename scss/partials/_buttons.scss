@@ -1,0 +1,32 @@
+button,
+.btn {
+  padding: 1rem 2rem;
+  font-size: 1.6rem;
+  font-weight: 500;
+  border: none;
+  cursor: pointer;
+  transition: 0.4s;
+  &.pagination {
+    width: 10.3rem;
+    color: #fff;
+    background-color: $bgDark;
+  }
+
+  &:focus {
+    outline: none;
+  }
+
+  &:hover {
+    transform: translateY(-2px);
+  }
+
+  & + button,
+  & + .btn {
+    margin-left: 2rem;
+  }
+}
+
+p + button,
+p + .btn {
+  margin-top: 2rem;
+}

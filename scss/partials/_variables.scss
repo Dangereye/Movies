@@ -1,11 +1,14 @@
 // -- COLOURS --
 // text
 $textLight: #ccc;
+$textDark: #333;
 
 // backgrounds
 $bgLight: rgb(245, 245, 245);
 $bgGrey: rgb(222, 222, 222);
 $bgDark: #000;
+
+$boxShadow: 0 3px 9px rgba(0, 0, 0, 0.15), 0 15px 18px rgba(0, 0, 0, 0.15);
 
 // -- SIZES --
 // elements
@@ -15,8 +18,8 @@ $footerHeight: 56px;
 $sectionMinHeight: calc(100vh - (56px + 56px));
 
 // text
-$fontSize: clamp(1.6rem, 2.5vw, 2rem);
+$fontSize: 1.6rem;
 
 // -- PADDING --
-$pagePadding: 0 1.6rem;
+$pagePadding: 0 clamp(1.6rem, 2.5vw, 4rem);
 $containerPadding: clamp(2rem, 2.5vw, 4rem) 0;

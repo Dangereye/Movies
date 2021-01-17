@@ -1,16 +1,30 @@
-.categories {
-  padding: 1rem $pagePadding;
+.desktop-categories {
+  width: 100%;
+  padding: 1rem 1.6rem;
   background-color: $bgGrey;
-  ul {
-    display: flex;
-    align-items: center;
 
-    > li:not(:last-child) {
-      margin-right: 2rem;
-    }
+  .container {
+    margin: 0 auto;
+    width: 100%;
+    max-width: $pageWidth;
 
-    li {
-      cursor: pointer;
+    ul {
+      display: flex;
+      align-items: center;
+
+      > li:not(:last-child) {
+        margin-right: 2rem;
+      }
+
+      li {
+        a {
+          color: $textDark;
+        }
+      }
     }
+  }
+
+  @media (max-width: 500px) {
+    display: none;
   }
 }

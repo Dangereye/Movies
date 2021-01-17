@@ -1,20 +1,20 @@
-import React, { useState } from 'react';
-import Categories from '../components/Categories';
-import MovieList from '../components/MovieList';
+import React, { useContext } from "react";
+import DesktopCategories from "../components/DesktopCategories";
+import ItemsList from "../components/ItemsList";
+import { MovieContext } from "../contexts/MovieContext";
 
 const Movies = () => {
-  const categories = [
-    { name: 'Popular', endPoint: '/movie/popular' },
-    { name: 'Now Playing', endPoint: '/movie/now_playing' },
-    { name: 'Upcoming', endPoint: '/movie/upcoming' },
-    { name: 'Top Rated', endPoint: '/movie/top_rated' },
-  ];
-
-  const [category, setCategory] = useState(categories[0]);
+  const { category, setCategory, categories, setPage } = useContext(
+    MovieContext
+  );
   return (
     <>
-      <Categories categories={categories} setCategory={setCategory} />
-      <MovieList
+      <DesktopCategories
+        categories={categories.movies}
+        setCategory={setCategory}
+        setPage={setPage}
+      />
+      <ItemsList
         title={`${category.name} Movies`}
         endPoint={category.endPoint}
       />

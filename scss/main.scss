@@ -1,12 +1,15 @@
-@import 'partials/variables';
-@import 'partials/typography';
-@import 'partials/mixins';
-@import 'partials/buttons';
-@import 'partials/forms';
-@import 'partials/global';
+@import "partials/variables";
+@import "partials/typography";
+@import "partials/mixins";
+@import "partials/buttons";
+@import "partials/forms";
+@import "partials/global";
 
-@import 'components/navbar';
-@import 'components/categories';
-@import 'components/movie-list';
-@import 'components/movie-card';
-@import 'components/footer';
+@import "components/navbar";
+@import "components/mobile-menu";
+@import "components/categories";
+@import "components/items-list";
+@import "components/list-item";
+@import "components/pagination";
+@import "components/movie-header";
+@import "components/footer";

@@ -1,0 +1,48 @@
+#mobile-menu {
+  width: 100%;
+  height: 100%;
+  padding: $pagePadding;
+  position: fixed;
+  top: 56px;
+  left: 0;
+  background-color: rgba($bgDark, 0.9);
+  color: $textLight;
+  transform: translateY(-100%);
+  transition: 0.4s;
+  z-index: 998;
+
+  .container {
+    width: 100%;
+    max-width: $pageWidth;
+    padding: $containerPadding;
+
+    .mobile-menu {
+      > li:not(:last-child) {
+        margin-bottom: 1rem;
+      }
+      .link-item {
+        a {
+          color: #fff;
+        }
+        .mobile-categories {
+          ul {
+            margin-left: 0.5rem;
+            li {
+              cursor: pointer;
+              a {
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+
+  &.open {
+    transform: translateY(0);
+  }
+
+  @media (min-width: 500px) {
+    display: none;
+  }
+}

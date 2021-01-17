@@ -1,0 +1,18 @@
+.list-item {
+  img {
+    width: 100%;
+    box-shadow: $boxShadow;
+    border-radius: 10px;
+  }
+  .content {
+    padding: 0 1.6rem;
+
+    .item-title {
+      font-weight: 700;
+      margin-bottom: 1rem;
+    }
+    .item-date {
+      font-size: 1.6rem;
+    }
+  }
+}

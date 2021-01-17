@@ -16,30 +16,37 @@ a {
 body {
   background-color: $bgLight;
   font-size: $fontSize;
+  color: $textDark;
 }
 
 #app {
+  width: 100%;
+  min-height: 100vh;
+  display: grid;
+  grid-template-rows: 1fr auto;
+}
+
+main {
+  width: 100%;
   padding-top: $navHeight;
-  width: 100%;
-  min-height: calc(100vh - $navHeight);
-}
-header,
-.categories,
-section {
-  width: 100%;
-  padding: $pagePadding;
 
-  .container {
-    margin: 0 auto;
+  header,
+  section {
     width: 100%;
-    max-width: $pageWidth;
-    height: 100%;
-  }
-}
+    padding: $pagePadding;
 
-section {
-  min-height: $sectionMinHeight;
-  .container {
-    padding: $containerPadding;
+    .container {
+      margin: 0 auto;
+      padding: $containerPadding;
+      width: 100%;
+      max-width: $pageWidth;
+    }
+  }
+
+  .status,
+  .status-date,
+  .genres,
+  .runtime {
+    padding: 1rem 0;
   }
 }

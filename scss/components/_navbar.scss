@@ -12,6 +12,7 @@
   align-items: center;
 
   background-color: $bgDark;
+  z-index: 999;
 
   .container {
     width: 100%;
@@ -25,7 +26,7 @@
       color: $textLight;
     }
 
-    .links {
+    .desktop-menu {
       display: flex;
       align-items: center;
 
@@ -36,6 +37,42 @@
         .link {
           color: $textLight;
         }
+      }
+    }
+
+    .mobile-menu {
+      display: none;
+      overflow: hidden;
+      > div:not(:last-child) {
+        margin-bottom: 9px;
+      }
+
+      div {
+        width: 24px;
+        height: 2px;
+        background-color: #fff;
+        transition: 0.4s;
+      }
+
+      &.open {
+        div:nth-of-type(1) {
+          transform: translateY(11px) rotate(45deg);
+        }
+        div:nth-of-type(2) {
+          transform: translateX(-5rem);
+        }
+        div:nth-of-type(3) {
+          transform: translateY(-11px) rotate(-45deg);
+        }
+      }
+    }
+
+    @media (max-width: 500px) {
+      .desktop-menu {
+        display: none;
+      }
+      .mobile-menu {
+        display: block;
       }
     }
   }
