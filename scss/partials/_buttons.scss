@@ -6,10 +6,24 @@ button,
   border: none;
   cursor: pointer;
   transition: 0.4s;
+
   &.pagination {
     width: 10.3rem;
     color: #fff;
     background-color: $bgDark;
+  }
+
+  &.homepage {
+    margin-top: 2rem;
+    width: max-content;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #fff;
+    border-radius: 2.5rem;
+    span {
+      margin-right: 0.5rem;
+    }
   }
 
   &:focus {

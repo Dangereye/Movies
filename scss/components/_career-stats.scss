@@ -1,0 +1,24 @@
+#career-stats {
+  background-color: $bgGrey;
+  .container {
+    .content {
+      display: flex;
+
+      .stat-card {
+        flex: 1 1 33%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+
+        h2 {
+          margin: 0;
+          font-size: clamp(2.4rem, 6vw, 4rem);
+        }
+
+        p {
+          text-align: center;
+        }
+      }
+    }
+  }
+}

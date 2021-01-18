@@ -4,6 +4,7 @@ import ItemsList from "../components/ItemsList";
 import { MovieContext } from "../contexts/MovieContext";
 
 const Movies = () => {
+  const movieContext = useContext(MovieContext);
   const { category, setCategory, categories, setPage } = useContext(
     MovieContext
   );
@@ -17,6 +18,7 @@ const Movies = () => {
       <ItemsList
         title={`${category.name} Movies`}
         endPoint={category.endPoint}
+        context={movieContext}
       />
     </>
   );

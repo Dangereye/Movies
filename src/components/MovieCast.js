@@ -4,14 +4,14 @@ import ItemImage from "./ItemImage";
 
 const MovieCast = ({ cast }) => {
   return (
-    <section className="movie-cast">
+    <section id="movie-cast">
       <div className="container">
         <h2>Cast Members ({cast.length})</h2>
         <div className="items-list">
           {cast.map((person, index) => {
             return (
               <div key={index} className="list-item">
-                <Link to="/">
+                <Link to={`/person/${person.id}`}>
                   <ItemImage name={person.name} image={person.profile_path} />
                 </Link>
                 <div className="content">

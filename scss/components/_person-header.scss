@@ -1,0 +1,42 @@
+#person-header {
+  .container {
+    .content {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(31rem, 1fr));
+      gap: clamp(2rem, 3vw, 4rem);
+      align-items: center;
+      .image {
+        align-self: start;
+        img {
+          width: 100%;
+          box-shadow: $boxShadow;
+          border-radius: 10px;
+        }
+      }
+      .details {
+        > *:not(:last-child) {
+          margin-bottom: 1rem;
+        }
+        h2 {
+          font-size: clamp(2.4rem, 5vw, 6rem);
+          line-height: 1;
+        }
+        p.known-for {
+          font-size: clamp(2rem, 5vw, 4.8rem);
+          font-weight: 300;
+        }
+
+        .born,
+        .death {
+          display: flex;
+          flex-wrap: wrap;
+          font-size: clamp(1.6rem, 3vw, 2.4rem);
+          font-weight: 500;
+          > span:not(:last-child) {
+            margin-right: 0.8rem;
+          }
+        }
+      }
+    }
+  }
+}

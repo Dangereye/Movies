@@ -1,12 +1,12 @@
-import React, { useContext } from "react";
+import React from "react";
 import { useQuery } from "react-query";
 import { fetchList } from "../api/FetchData";
-import { MovieContext } from "../contexts/MovieContext";
-import ListItem from "./ListItem";
+import MovieItem from "./MovieItem";
 import Pagination from "./Pagination";
+import PersonItem from "./PersonItem";
 
-const ItemsList = ({ title, endPoint }) => {
-  const { page, setPage, pages, setPages } = useContext(MovieContext);
+const ItemsList = ({ title, endPoint, context }) => {
+  const { page, setPage, pages, setPages } = context;
   const { status, data, error } = useQuery([title, endPoint, page], () =>
     fetchList(endPoint, page)
   );
@@ -27,9 +27,15 @@ const ItemsList = ({ title, endPoint }) => {
               Showing {data.results.length} of {data.total_results} results
             </div>
             <div className="items-list">
-              {data.results.map((item) => (
-                <ListItem key={item.id} data={item} />
-              ))}
+              {data.results.map((item) =>
+                endPoint.includes("movie") ? (
+                  <MovieItem key={item.id} data={item} />
+                ) : endPoint.includes("person") ? (
+                  <PersonItem key={item.id} data={item} />
+                ) : (
+                  ""
+                )
+              )}
             </div>
             <Pagination page={page} setPage={setPage} pages={pages} />
           </>

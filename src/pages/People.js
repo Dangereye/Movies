@@ -1,13 +1,16 @@
-import React from 'react';
+import React, { useContext } from "react";
+import ItemsList from "../components/ItemsList";
+import { PeopleContext } from "../contexts/PeopleContext";
 
 const People = () => {
+  const peopleContext = useContext(PeopleContext);
   return (
     <>
-      <section>
-        <div className='container'>
-          <h1>People</h1>
-        </div>
-      </section>
+      <ItemsList
+        title="Popular People"
+        endPoint="/person/popular"
+        context={peopleContext}
+      />
     </>
   );
 };

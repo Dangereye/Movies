@@ -10,10 +10,19 @@ h1 {
   margin-bottom: 1rem;
 }
 
+h2 {
+  margin-bottom: 2rem;
+}
+
 h3 {
   font-size: 1.6rem;
   line-height: 1.2;
   margin: 2rem 0 1rem 0;
+}
+
+p {
+  width: 100%;
+  max-width: 75ch;
 }
 
 button,
@@ -32,6 +41,30 @@ button.pagination,
   width: 10.3rem;
   color: #fff;
   background-color: #000;
+}
+
+button.homepage,
+.btn.homepage {
+  margin-top: 2rem;
+  width: -webkit-max-content;
+  width: -moz-max-content;
+  width: max-content;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  color: #fff;
+  border-radius: 2.5rem;
+}
+
+button.homepage span,
+.btn.homepage span {
+  margin-right: 0.5rem;
 }
 
 button:focus,
@@ -251,6 +284,10 @@ main .runtime {
   cursor: pointer;
 }
 
+#mobile-menu .container .mobile-menu .link-item .mobile-categories ul li a {
+  color: #ccc;
+}
+
 #mobile-menu.open {
   -webkit-transform: translateY(0);
           transform: translateY(0);
@@ -389,6 +426,95 @@ main .runtime {
   width: 100%;
   height: 100%;
   background-color: rgba(245, 245, 245, 0.8);
+}
+
+#person-header .container .content {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: (minmax(31rem, 1fr))[auto-fit];
+      grid-template-columns: repeat(auto-fit, minmax(31rem, 1fr));
+  gap: clamp(2rem, 3vw, 4rem);
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+#person-header .container .content .image {
+  -ms-flex-item-align: start;
+      -ms-grid-row-align: start;
+      align-self: start;
+}
+
+#person-header .container .content .image img {
+  width: 100%;
+  -webkit-box-shadow: 0 3px 9px rgba(0, 0, 0, 0.15), 0 15px 18px rgba(0, 0, 0, 0.15);
+          box-shadow: 0 3px 9px rgba(0, 0, 0, 0.15), 0 15px 18px rgba(0, 0, 0, 0.15);
+  border-radius: 10px;
+}
+
+#person-header .container .content .details > *:not(:last-child) {
+  margin-bottom: 1rem;
+}
+
+#person-header .container .content .details h2 {
+  font-size: clamp(2.4rem, 5vw, 6rem);
+  line-height: 1;
+}
+
+#person-header .container .content .details p.known-for {
+  font-size: clamp(2rem, 5vw, 4.8rem);
+  font-weight: 300;
+}
+
+#person-header .container .content .details .born,
+#person-header .container .content .details .death {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  font-size: clamp(1.6rem, 3vw, 2.4rem);
+  font-weight: 500;
+}
+
+#person-header .container .content .details .born > span:not(:last-child),
+#person-header .container .content .details .death > span:not(:last-child) {
+  margin-right: 0.8rem;
+}
+
+#career-stats {
+  background-color: #dedede;
+}
+
+#career-stats .container .content {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+#career-stats .container .content .stat-card {
+  -webkit-box-flex: 1;
+      -ms-flex: 1 1 33%;
+          flex: 1 1 33%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+#career-stats .container .content .stat-card h2 {
+  margin: 0;
+  font-size: clamp(2.4rem, 6vw, 4rem);
+}
+
+#career-stats .container .content .stat-card p {
+  text-align: center;
 }
 
 #footer {

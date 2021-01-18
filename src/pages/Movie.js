@@ -15,8 +15,6 @@ const MovieDetails = () => {
     fetchItem(`/movie/${id}/credits`)
   );
 
-  console.log("Credits:", credits.data);
-
   if (details.loading || credits.loading) {
     return <div className="status">Loading data..</div>;
   }
