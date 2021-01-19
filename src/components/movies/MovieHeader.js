@@ -1,7 +1,7 @@
 import React from "react";
-import StatusAndDate from "./StatusAndDate";
-import GenresComponent from "./GenresComponent";
-import RunTimeComponent from "./RunTimeComponent";
+import FullDate from "../shared/FullDate";
+import GenresComponent from "../shared/Genres";
+import RunTimeComponent from "../shared/RunTimeComponent";
 
 const MovieHeader = ({ details, credits }) => {
   const bgImage = {
@@ -20,10 +20,10 @@ const MovieHeader = ({ details, credits }) => {
           <div className="details">
             <h1>{details.data.title}</h1>
             <div className="stats">
-              <StatusAndDate
-                date={details.data.release_date}
-                status={details.data.status}
-              />
+              <span>
+                <strong>{details.data.status} </strong>
+              </span>
+              <FullDate date={details.data.release_date} />
               <GenresComponent genres={details.data.genres} />
               <RunTimeComponent runtime={details.data.runtime} />
             </div>

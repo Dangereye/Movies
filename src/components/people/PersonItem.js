@@ -1,6 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import ItemImage from "./ItemImage";
+import ItemImage from "../shared/ItemImage";
 
 const PersonItem = ({ data }) => {
   return (

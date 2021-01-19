@@ -1,5 +1,5 @@
 import React from "react";
-import FullDate from "./FullDate";
+import FullDate from "../shared/FullDate";
 import KnownFor from "./KnownFor";
 import HomePageButton from "./HomePageButton";
 

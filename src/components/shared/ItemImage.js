@@ -1,5 +1,5 @@
 import React from "react";
-import unavailable from "../images/unavailable.jpg";
+import unavailable from "../../images/unavailable.jpg";
 
 const ItemImage = ({ image, name }) => {
   if (image !== null) {

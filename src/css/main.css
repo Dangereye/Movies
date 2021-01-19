@@ -380,6 +380,10 @@ main .runtime {
           align-items: center;
 }
 
+#pagination p {
+  text-align: center;
+}
+
 #pagination .buttons {
   padding-top: 2rem;
 }

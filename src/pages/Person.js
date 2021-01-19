@@ -2,9 +2,9 @@ import React from "react";
 import { useQuery } from "react-query";
 import { useParams } from "react-router-dom";
 import { fetchItem } from "../api/FetchData";
-import Biography from "../components/Biography";
-import CareerStats from "../components/CareerStats";
-import PersonHeader from "../components/PersonHeader";
+import Biography from "../components/people/Biography";
+import CareerStats from "../components/people/CareerStats";
+import PersonHeader from "../components/people/PersonHeader";
 
 const Person = () => {
   const { id } = useParams();

@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { Route, Switch } from "react-router-dom";
 import Footer from "./components/Footer";
-import MobileMenu from "./components/MobileMenu";
+import MobileMenu from "./components/shared/MobileMenu";
 import Navbar from "./components/Navbar";
 import MovieContextProvider from "./contexts/MovieContext";
 import PeopleContextProvider from "./contexts/PeopleContext";

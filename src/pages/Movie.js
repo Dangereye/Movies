@@ -2,8 +2,8 @@ import React from "react";
 import { useQuery } from "react-query";
 import { useParams } from "react-router-dom";
 import { fetchItem } from "../api/FetchData";
-import MovieCast from "../components/MovieCast";
-import MovieHeader from "../components/MovieHeader";
+import MovieCast from "../components/movies/MovieCast";
+import MovieHeader from "../components/movies/MovieHeader";
 
 const MovieDetails = () => {
   const { id } = useParams();

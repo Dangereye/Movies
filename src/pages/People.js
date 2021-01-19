@@ -1,5 +1,5 @@
 import React, { useContext } from "react";
-import ItemsList from "../components/ItemsList";
+import ItemsList from "../components/shared/ItemsList";
 import { PeopleContext } from "../contexts/PeopleContext";
 
 const People = () => {

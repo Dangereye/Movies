@@ -1,6 +1,6 @@
 import React, { useContext } from "react";
 import { Link } from "react-router-dom";
-import { MovieContext } from "../contexts/MovieContext";
+import { MovieContext } from "../../contexts/MovieContext";
 import MobileCategories from "./MobileCategories";
 
 const MobileMenu = ({ open, toggle }) => {

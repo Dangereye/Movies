@@ -1,9 +1,9 @@
 import React from "react";
 import { useQuery } from "react-query";
-import { fetchList } from "../api/FetchData";
-import MovieItem from "./MovieItem";
+import { fetchList } from "../../api/FetchData";
+import MovieItem from "../movies/MovieItem";
 import Pagination from "./Pagination";
-import PersonItem from "./PersonItem";
+import PersonItem from "../people/PersonItem";
 
 const ItemsList = ({ title, endPoint, context }) => {
   const { page, setPage, pages, setPages } = context;

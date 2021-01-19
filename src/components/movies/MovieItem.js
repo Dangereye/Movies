@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import ItemImage from "./ItemImage";
-import Year from "./Year";
+import ItemImage from "../shared/ItemImage";
+import Year from "../shared/Year";
 
 const ListItem = ({ data }) => {
   return (

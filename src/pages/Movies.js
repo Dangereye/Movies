@@ -1,6 +1,6 @@
 import React, { useContext } from "react";
-import DesktopCategories from "../components/DesktopCategories";
-import ItemsList from "../components/ItemsList";
+import DesktopCategories from "../components/shared/DesktopCategories";
+import ItemsList from "../components/shared/ItemsList";
 import { MovieContext } from "../contexts/MovieContext";
 
 const Movies = () => {
