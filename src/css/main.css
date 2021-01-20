@@ -67,6 +67,26 @@ button.homepage span,
   margin-right: 0.5rem;
 }
 
+button.history-previous-page,
+.btn.history-previous-page {
+  padding: 1rem 0;
+  width: -webkit-max-content;
+  width: -moz-max-content;
+  width: max-content;
+  background-color: transparent;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+button.history-previous-page span,
+.btn.history-previous-page span {
+  margin-left: 5px;
+}
+
 button:focus,
 .btn:focus {
   outline: none;
@@ -134,8 +154,11 @@ main section {
 
 main header .container,
 main section .container {
-  margin: 0 auto;
   padding: clamp(2rem, 2.5vw, 4rem) 0;
+}
+
+main .container {
+  margin: 0 auto;
   width: 100%;
   max-width: 1024px;
 }
@@ -145,6 +168,10 @@ main .status-date,
 main .genres,
 main .runtime {
   padding: 1rem 0;
+}
+
+main .history-previous-page {
+  background-color: #dedede;
 }
 
 #navbar {
@@ -343,6 +370,38 @@ main .runtime {
   gap: 2rem;
 }
 
+.videos-list {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: (minmax(30rem, 1fr))[auto-fit];
+      grid-template-columns: repeat(auto-fit, minmax(30rem, 1fr));
+  gap: clamp(2rem, 5vw, 4rem);
+}
+
+.videos-list .video-card .video {
+  position: relative;
+  width: 100%;
+  padding-top: 56.25%;
+  -webkit-box-shadow: 0 3px 9px rgba(0, 0, 0, 0.15), 0 15px 18px rgba(0, 0, 0, 0.15);
+          box-shadow: 0 3px 9px rgba(0, 0, 0, 0.15), 0 15px 18px rgba(0, 0, 0, 0.15);
+}
+
+.videos-list .video-card .video iframe {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+}
+
+.videos-list .video-card p {
+  max-width: 100%;
+  padding: 1rem 0;
+  text-align: center;
+}
+
 .list-item img {
   width: 100%;
   -webkit-box-shadow: 0 3px 9px rgba(0, 0, 0, 0.15), 0 15px 18px rgba(0, 0, 0, 0.15);
@@ -361,6 +420,37 @@ main .runtime {
 
 .list-item .content .item-date {
   font-size: 1.6rem;
+}
+
+.providers {
+  padding: 2rem 0;
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: (minmax(13rem, 1fr))[auto-fit];
+      grid-template-columns: repeat(auto-fit, minmax(13rem, 1fr));
+  gap: 2rem;
+}
+
+.providers .item {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.providers .item img {
+  width: clamp(2.5rem, 5vw, 5rem);
+}
+
+.providers .item p {
+  padding: 1rem 0;
+  text-align: center;
 }
 
 #pagination {
