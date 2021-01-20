@@ -2,6 +2,7 @@ import React from "react";
 import { useQuery } from "react-query";
 import { useParams } from "react-router-dom";
 import { fetchItem } from "../../api/FetchData";
+import ProvidersList from "./ProvidersList";
 
 const Providers = () => {
   const { id } = useParams();
@@ -13,28 +14,40 @@ const Providers = () => {
   return (
     <section>
       <div className="container">
-        <h2>Rent it on:</h2>
         {isLoading && <div>Loading..</div>}
         {isError && <div>Error:{error.message}</div>}
         {isSuccess && (
           <>
             {console.log("Providers: ", providers)}
-            {providers.results.BG ? (
-              <div className="providers">
-                {providers.results.BG.map(() => {
-                  return (
-                    <div className="item">
-                      <img
-                        src={`https://image.tmdb.org/t/p/w500${providers.results.BG.logo_path}`}
-                        alt={providers.results.BG.provider_name}
-                      />
-                      <p>{providers.results.BG.provider_name}</p>
-                    </div>
-                  );
-                })}
-              </div>
+            {providers.results.GB ? (
+              <>
+                <div className="option">
+                  <h2>Watch it</h2>
+                  {providers.results.GB.flatrate ? (
+                    <ProvidersList data={providers.results.GB.flatrate} />
+                  ) : (
+                    <div>Currently available.</div>
+                  )}
+                </div>
+                <div className="option">
+                  <h2>Buy it</h2>
+                  {providers.results.GB.buy ? (
+                    <ProvidersList data={providers.results.GB.buy} />
+                  ) : (
+                    <div>Currently available.</div>
+                  )}
+                </div>
+                <div className="option">
+                  <h2>Rent it</h2>
+                  {providers.results.GB.rent ? (
+                    <ProvidersList data={providers.results.GB.rent} />
+                  ) : (
+                    <div>Currently available.</div>
+                  )}
+                </div>
+              </>
             ) : (
-              <div>Not currently available to rent in the UK</div>
+              ""
             )}
           </>
         )}

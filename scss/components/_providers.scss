@@ -1,18 +1,24 @@
 .providers {
   padding: 2rem 0;
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(13rem, 1fr));
+  grid-template-columns: repeat(auto-fit, 13rem);
   gap: 2rem;
+
   .item {
     display: flex;
     flex-direction: column;
     align-items: center;
     img {
-      width: clamp(2.5rem, 5vw, 5rem);
+      width: 7.5rem;
+      box-shadow: $boxShadow;
     }
     p {
       padding: 1rem 0;
       text-align: center;
     }
   }
+}
+
+.option {
+  padding: 2rem 0;
 }

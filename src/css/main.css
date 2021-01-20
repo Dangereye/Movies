@@ -426,8 +426,8 @@ main .history-previous-page {
   padding: 2rem 0;
   display: -ms-grid;
   display: grid;
-  -ms-grid-columns: (minmax(13rem, 1fr))[auto-fit];
-      grid-template-columns: repeat(auto-fit, minmax(13rem, 1fr));
+  -ms-grid-columns: (13rem)[auto-fit];
+      grid-template-columns: repeat(auto-fit, 13rem);
   gap: 2rem;
 }
 
@@ -445,12 +445,18 @@ main .history-previous-page {
 }
 
 .providers .item img {
-  width: clamp(2.5rem, 5vw, 5rem);
+  width: 7.5rem;
+  -webkit-box-shadow: 0 3px 9px rgba(0, 0, 0, 0.15), 0 15px 18px rgba(0, 0, 0, 0.15);
+          box-shadow: 0 3px 9px rgba(0, 0, 0, 0.15), 0 15px 18px rgba(0, 0, 0, 0.15);
 }
 
 .providers .item p {
   padding: 1rem 0;
   text-align: center;
+}
+
+.option {
+  padding: 2rem 0;
 }
 
 #pagination {
