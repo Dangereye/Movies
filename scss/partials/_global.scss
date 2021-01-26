@@ -42,15 +42,9 @@ main {
 
   .container {
     margin: 0 auto;
+    padding: 0;
     width: 100%;
     max-width: $pageWidth;
-  }
-
-  .status,
-  .status-date,
-  .genres,
-  .runtime {
-    padding: 1rem 0;
   }
 
   .history-previous-page {

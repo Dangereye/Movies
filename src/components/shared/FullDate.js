@@ -5,7 +5,12 @@ const FullDate = ({ date }) => {
   const day = d.getDate();
   const month = d.getMonth() + 1;
   const year = d.getFullYear();
-  return <span className="date">{` ${day} . ${month} . ${year},`}</span>;
+
+  if (date === "" || date === undefined || date === null) {
+    return null;
+  }
+
+  return <span className="date">{`${day} . ${month} . ${year}`}</span>;
 };
 
 export default FullDate;

@@ -1,42 +1,43 @@
 import React from "react";
 import { useQuery } from "react-query";
 import { useParams } from "react-router-dom";
-import { fetchItem } from "../api/FetchData";
-import MovieCast from "../components/movies/MovieCast";
+import { fetchData } from "../api/FetchData";
+import DataStatus from "../components/shared/DataStatus";
+import HistoryPreviousPage from "../components/shared/HistoryPreviousPage";
 import MovieHeader from "../components/movies/MovieHeader";
 import MovieMedia from "../components/movies/MovieMedia";
 import Providers from "../components/movies/Providers";
+import MovieCast from "../components/movies/MovieCast";
 
 const MovieDetails = () => {
+  const apiKey = process.env.REACT_APP_KEY;
   const { id } = useParams();
 
-  const details = useQuery(["details", `/movie/${id}`], () =>
-    fetchItem(`/movie/${id}`)
+  const movieDetails = useQuery("movie details", () =>
+    fetchData(`/movie/${id}?api_key=${apiKey}&language=en`)
   );
-  const credits = useQuery(["credits", `/movie/${id}/credits`], () =>
-    fetchItem(`/movie/${id}/credits`)
+  const movieCredits = useQuery("movie credits", () =>
+    fetchData(`/movie/${id}/credits?api_key=${apiKey}&language=en`)
   );
-  console.log(details);
 
-  if (details.isLoading || credits.isLoading) {
-    return <div className="status">Loading data..</div>;
+  if (movieDetails.isLoading || movieCredits.isLoading) {
+    return <DataStatus text="Just a moment.." />;
   }
 
-  if (details.isError) {
-    return <div className="status">Error: {details.error.message}</div>;
+  if (movieDetails.isError || movieCredits.isError) {
+    return (
+      <DataStatus text="Oops! Something went wrong. Refresh the page, or try again later." />
+    );
   }
 
-  if (credits.isError) {
-    return <div className="status">Error: {credits.error.message}</div>;
-  }
-
-  if (details.isSuccess && credits.isSuccess) {
+  if (movieDetails.isSuccess && movieCredits.isSuccess) {
     return (
       <>
-        <MovieHeader details={details} credits={credits} />
+        <HistoryPreviousPage />
+        <MovieHeader details={movieDetails.data} credits={movieCredits.data} />
         <MovieMedia />
         <Providers />
-        <MovieCast cast={credits.data.cast} />
+        <MovieCast cast={movieCredits.data.cast} />
       </>
     );
   }

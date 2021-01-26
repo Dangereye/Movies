@@ -12,20 +12,10 @@ const RunTimeComponent = ({ runtime }) => {
   format();
 
   if (runtime === 0) {
-    return (
-      <div className="runtime">
-        <strong>Runtime: </strong>
-        Unknown
-      </div>
-    );
+    return null;
   }
 
-  return (
-    <div className="runtime">
-      <strong>Runtime: </strong>
-      {format()}
-    </div>
-  );
+  return <span className="runtime"> {format()}</span>;
 };
 
 export default RunTimeComponent;

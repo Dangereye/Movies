@@ -17,9 +17,8 @@
       }
 
       li {
-        a {
-          color: $textDark;
-        }
+        color: $textDark;
+        cursor: pointer;
       }
     }
   }

@@ -1,10 +1,9 @@
 import React, { useContext } from "react";
 import DesktopCategories from "../components/shared/DesktopCategories";
-import ItemsList from "../components/shared/ItemsList";
+import GridListPage from "../components/shared/GridListPage";
 import { MovieContext } from "../contexts/MovieContext";
 
 const Movies = () => {
-  const movieContext = useContext(MovieContext);
   const { category, setCategory, categories, setPage } = useContext(
     MovieContext
   );
@@ -15,10 +14,10 @@ const Movies = () => {
         setCategory={setCategory}
         setPage={setPage}
       />
-      <ItemsList
+      <GridListPage
         title={`${category.name} Movies`}
         endPoint={category.endPoint}
-        context={movieContext}
+        context={MovieContext}
       />
     </>
   );

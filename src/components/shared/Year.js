@@ -4,11 +4,11 @@ const Year = ({ date }) => {
   const d = new Date(date);
   const year = d.getFullYear();
 
-  if (date === "") {
+  if (date === "" || date === undefined || date === null) {
     return null;
   }
 
-  return <div>{year}</div>;
+  return <span>{year}</span>;
 };
 
 export default Year;

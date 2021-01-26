@@ -1,5 +1,4 @@
 import React from "react";
-import { Link } from "react-router-dom";
 
 const DesktopCategories = ({ categories, setCategory, setPage }) => {
   const handleClick = (index) => {
@@ -11,10 +10,11 @@ const DesktopCategories = ({ categories, setCategory, setPage }) => {
       <div className="container">
         <ul>
           {categories.map((category, index) => (
-            <li key={index}>
-              <Link to="/movies" onClick={() => handleClick(index)}>
-                {category.name}
-              </Link>
+            <li
+              key={`${category.name}${index}`}
+              onClick={() => handleClick(index)}
+            >
+              {category.name}
             </li>
           ))}
         </ul>

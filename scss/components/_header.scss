@@ -1,0 +1,72 @@
+header {
+  position: relative;
+  background-size: cover;
+  background-position: center;
+  background-color: $bgDark;
+
+  .container {
+    .content {
+      position: relative;
+      display: grid;
+      grid-template-columns: 30rem 1fr;
+      gap: 4rem;
+      z-index: 2;
+
+      .image {
+        align-self: start;
+        width: 100%;
+
+        img {
+          width: 100%;
+          height: auto;
+          box-shadow: $boxShadow;
+          border-radius: 10px;
+        }
+      }
+
+      .details {
+        color: #fff;
+        align-self: center;
+
+        span + span::before {
+          content: ",";
+          display: inline-block;
+          padding-right: 8px;
+        }
+        span.group {
+          font-size: 1.4rem;
+          color: $textLight;
+        }
+        span.group + span.group::before {
+          content: "|";
+          display: inline-block;
+          font-size: 1.8rem;
+          padding: 0 8px;
+        }
+
+        p {
+          color: $textLight;
+        }
+
+        p + p {
+          margin-top: 1rem;
+        }
+      }
+
+      @media (max-width: 720px) {
+        grid-template-columns: 1fr;
+      }
+    }
+  }
+}
+
+header.bg-image::after {
+  position: absolute;
+  top: 0;
+  left: 0;
+  content: "";
+  display: block;
+  width: 100%;
+  height: 100%;
+  background-color: rgba($bgDark, 0.9);
+}

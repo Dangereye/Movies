@@ -11,9 +11,6 @@ h1 {
   line-height: 1.2;
   margin-bottom: 1rem;
 }
-h2 {
-  margin-bottom: 2rem;
-}
 
 h3 {
   font-size: 1.6rem;
@@ -24,4 +21,9 @@ h3 {
 p {
   width: 100%;
   max-width: 75ch;
+}
+
+h2 + p,
+p + p {
+  margin-top: 1rem;
 }

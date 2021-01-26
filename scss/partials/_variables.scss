@@ -1,4 +1,5 @@
 // -- COLOURS --
+$primaryColor: #e50914;
 // text
 $textLight: #ccc;
 $textDark: #333;
@@ -22,4 +23,4 @@ $fontSize: 1.6rem;
 
 // -- PADDING --
 $pagePadding: 0 clamp(1.6rem, 2.5vw, 4rem);
-$containerPadding: clamp(2rem, 2.5vw, 4rem) 0;
+$containerPadding: 4rem 0;

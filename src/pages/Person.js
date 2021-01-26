@@ -1,52 +1,71 @@
 import React from "react";
 import { useQuery } from "react-query";
 import { useParams } from "react-router-dom";
-import { fetchItem } from "../api/FetchData";
-import Biography from "../components/people/Biography";
-import CareerStats from "../components/people/CareerStats";
+import { fetchData } from "../api/FetchData";
+import DataStatus from "../components/shared/DataStatus";
+import HistoryPreviousPage from "../components/shared/HistoryPreviousPage";
 import PersonHeader from "../components/people/PersonHeader";
+import CareerStats from "../components/people/CareerStats";
+import Biography from "../components/people/Biography";
+import MovieCredits from "../components/people/MovieCredits";
+import TvCredits from "../components/people/TvCredits";
 
 const Person = () => {
+  const apiKey = process.env.REACT_APP_KEY;
   const { id } = useParams();
-  const details = useQuery(["person", `/person/${id}`], () =>
-    fetchItem(`/person/${id}`)
+  const personDetails = useQuery("person details", () =>
+    fetchData(`/person/${id}?api_key=${apiKey}&language=en`)
   );
-  const movieCredits = useQuery(
-    ["credits", `/person/${id}/movie_credits`],
-    () => fetchItem(`/person/${id}/movie_credits`)
+  const personMovieCredits = useQuery("person movie credits", () =>
+    fetchData(`/person/${id}/movie_credits?api_key=${apiKey}&language=en`)
   );
-  const tvCredits = useQuery(["credits", `/person/${id}/tv_credits`], () =>
-    fetchItem(`/person/${id}/tv_credits`)
+  const personTvCredits = useQuery(
+    ["person tv credits", `/person/${id}/tv_credits`],
+    () => fetchData(`/person/${id}/tv_credits?api_key=${apiKey}&language=en`)
   );
-  if (details.loading || movieCredits.loading || tvCredits.loading) {
-    return <div className="status">Loading data..</div>;
-  }
 
-  if (details.error || movieCredits.error || tvCredits.error) {
-    return <div className="status">Error: {details.error.message}</div>;
+  if (
+    personDetails.isloading ||
+    personMovieCredits.isLoading ||
+    personTvCredits.isLoading
+  ) {
+    return <DataStatus text="Just a moment.." />;
   }
 
   if (
-    details.status === "success" &&
-    movieCredits.status === "success" &&
-    tvCredits.status === "success"
+    personDetails.isError ||
+    personMovieCredits.isError ||
+    personTvCredits.isError
+  ) {
+    return (
+      <DataStatus text="Oops! Something went wrong. Refresh the page, or try again later." />
+    );
+  }
+
+  if (
+    personDetails.isSuccess &&
+    personMovieCredits.isSuccess &&
+    personTvCredits.isSuccess
   ) {
     return (
       <>
-        {console.log("Details: ", details.data)}
-        {console.log("Movies: ", movieCredits.data)}
-        {console.log("TV: ", tvCredits.data)}
-        <PersonHeader details={details} movies={movieCredits} tv={tvCredits} />
-        <CareerStats
-          movies={movieCredits.data.cast}
-          tv={tvCredits.data.cast}
-          popularity={details.data.popularity}
+        <HistoryPreviousPage />
+        <PersonHeader
+          details={personDetails}
+          movies={personMovieCredits}
+          tv={personTvCredits}
         />
-        <Biography details={details} />
+        <CareerStats
+          movies={personMovieCredits.data.cast}
+          tv={personTvCredits.data.cast}
+          popularity={personDetails.data.popularity}
+        />
+        <Biography />
+        <MovieCredits data={personMovieCredits.data.cast} />
+        <TvCredits data={personTvCredits.data.cast} />
       </>
     );
   }
-  return null;
 };
 
 export default Person;

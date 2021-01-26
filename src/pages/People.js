@@ -1,15 +1,15 @@
 import React, { useContext } from "react";
-import ItemsList from "../components/shared/ItemsList";
+import GridListPage from "../components/shared/GridListPage";
 import { PeopleContext } from "../contexts/PeopleContext";
 
 const People = () => {
-  const peopleContext = useContext(PeopleContext);
+  const { category } = useContext(PeopleContext);
   return (
     <>
-      <ItemsList
-        title="Popular People"
-        endPoint="/person/popular"
-        context={peopleContext}
+      <GridListPage
+        title={`${category.name} People`}
+        endPoint={category.endPoint}
+        context={PeopleContext}
       />
     </>
   );

@@ -1,29 +1,44 @@
 import React from "react";
 import { useQuery } from "react-query";
 import { useParams } from "react-router-dom";
-import { fetchItem } from "../../api/FetchData";
+import { fetchData } from "../../api/FetchData";
+import DataStatus from "../shared/DataStatus";
 import VideosList from "../shared/VideosList";
 
 const MovieMedia = () => {
+  const apiKey = process.env.REACT_APP_KEY;
   const { id } = useParams();
-  const videos = useQuery(["credits", `/movie/${id}/videos`], () =>
-    fetchItem(`/movie/${id}/videos`)
+  const { isLoading, isError, isSuccess, data } = useQuery("videos", () =>
+    fetchData(`/movie/${id}/videos?api_key=${apiKey}&language=en`)
   );
-  //   console.log("Videos: ", videos);
-
-  if (videos.status === "success") {
-    return (
-      <section>
-        <div className="container">
-          <h2>Videos ({videos.data.results.length})</h2>
-          {videos.isLoading && <div>Loading, please wait..</div>}
-          {videos.isError && <div>Error: {videos.error.message}</div>}
-          {videos.isSuccess && <VideosList videos={videos.data.results} />}
-        </div>
-      </section>
-    );
-  }
-  return null;
+  return (
+    <section id="movie-media">
+      <div className="container">
+        {isLoading && (
+          <>
+            <h2>Videos</h2>
+            <DataStatus text="Loading videos.." />
+          </>
+        )}
+        {isError && (
+          <>
+            <h2>Videos</h2>
+            <DataStatus text="Failed to get videos." />
+          </>
+        )}
+        {isSuccess && (
+          <>
+            <h2>Videos ({data.results.length})</h2>
+            {data.results.length > 0 ? (
+              <VideosList videos={data.results} />
+            ) : (
+              "No videos available."
+            )}
+          </>
+        )}
+      </div>
+    </section>
+  );
 };
 
 export default MovieMedia;

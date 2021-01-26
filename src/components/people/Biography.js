@@ -1,11 +1,16 @@
-import React from "react";
+import React, { useContext } from "react";
+import { PeopleContext } from "../../contexts/PeopleContext";
 
-const Biography = ({ details }) => {
+const Biography = () => {
+  const { biography } = useContext(PeopleContext);
   return (
     <section id="biography">
       <div className="container">
-        <h2>Biography</h2>
-        <p>{details.data.biography}</p>
+        <h2>Extended Biography</h2>
+        {biography &&
+          biography.map((paragraph, index) => {
+            return <p key={`biography ${index}`}>{paragraph}.</p>;
+          })}
       </div>
     </section>
   );

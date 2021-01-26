@@ -1,53 +1,54 @@
 import React from "react";
-import FullDate from "../shared/FullDate";
-import GenresComponent from "../shared/Genres";
-import HistoryPreviousPage from "../shared/HistoryPreviousPage";
-import RunTimeComponent from "../shared/RunTimeComponent";
+import Genres from "../shared/Genres";
+import RunTime from "../shared/RunTime";
+import Year from "../shared/Year";
+import ImageItem from "../shared/ItemImage";
 
 const MovieHeader = ({ details, credits }) => {
   const bgImage = {
-    backgroundImage: `url(https://image.tmdb.org/t/p/w500${details.data.backdrop_path})`,
+    backgroundImage: `url(https://image.tmdb.org/t/p/w500${details.backdrop_path})`,
   };
   return (
-    <>
-      <HistoryPreviousPage />
-      <header id="movie-header" style={bgImage}>
-        <div className="container">
-          <div className="content">
-            <div className="image">
-              <img
-                src={`https://image.tmdb.org/t/p/w500${details.data.poster_path}`}
-                alt={details.data.title}
-              />
-            </div>
-            <div className="details">
-              <h1>{details.data.title}</h1>
-              <div className="status">
-                <span>
-                  <strong>{details.data.status} </strong>
-                </span>
-                <FullDate date={details.data.release_date} />
-              </div>
-              <GenresComponent genres={details.data.genres} />
-              <RunTimeComponent runtime={details.data.runtime} />
+    <header className="bg-image" style={bgImage}>
+      <div className="container">
+        <div className="content">
+          <div className="image">
+            <ImageItem
+              image={details.poster_path}
+              name={details.title}
+              width="300px"
+              height="450px"
+            />
+          </div>
+          <div className="details">
+            <h1>{details.title}</h1>
+            <span className="group">
+              <Year date={details.release_date} />
+            </span>
+            <span className="group">
+              <Genres genres={details.genres} />
+            </span>
+            <span className="group">
+              <RunTime runtime={details.runtime} />
+            </span>
 
-              <h3>Overview</h3>
-              <p>{details.data.overview}</p>
-              <h3>Director(s)</h3>
-              <p>
-                {credits.data.crew.map((member) => {
+            <h3>Overview</h3>
+            <p>{details.overview}</p>
+            <h3>Director(s)</h3>
+            <p>
+              {credits.crew &&
+                credits.crew.map((member) => {
                   if (member.job === "Director") {
                     return member.name;
                   } else {
                     return "";
                   }
                 })}
-              </p>
-            </div>
+            </p>
           </div>
         </div>
-      </header>
-    </>
+      </div>
+    </header>
   );
 };
 

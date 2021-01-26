@@ -1,5 +1,6 @@
 button,
 .btn {
+  display: inline-block;
   padding: 1rem 2rem;
   font-size: 1.6rem;
   font-weight: 500;
@@ -14,16 +15,9 @@ button,
   }
 
   &.homepage {
-    margin-top: 2rem;
-    width: max-content;
-    display: flex;
-    justify-content: center;
-    align-items: center;
     color: #fff;
+    background-color: $primaryColor;
     border-radius: 2.5rem;
-    span {
-      margin-right: 0.5rem;
-    }
   }
 
   &.history-previous-page {
@@ -53,5 +47,5 @@ button,
 
 p + button,
 p + .btn {
-  margin-top: 2rem;
+  margin-top: 3rem;
 }

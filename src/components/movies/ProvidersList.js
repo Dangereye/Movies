@@ -5,7 +5,7 @@ const ProvidersList = ({ data }) => {
     <div className="providers">
       {data.map((item) => {
         return (
-          <div className="item">
+          <div className="item" key={item.provider_name}>
             <img
               src={`https://image.tmdb.org/t/p/w500${item.logo_path}`}
               alt={item.provider_name}

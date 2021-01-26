@@ -5,7 +5,7 @@ const VideoList = ({ videos }) => {
     <div className="videos-list">
       {videos.map((video, index) => {
         return (
-          <div key={video.id} className="video-card">
+          <div key={`videoList ${index}`} className="video-card">
             <div className="video">
               <iframe
                 title={video.id}

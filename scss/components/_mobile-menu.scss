@@ -28,10 +28,8 @@
           ul {
             margin-left: 0.5rem;
             li {
+              color: $textLight;
               cursor: pointer;
-              a {
-                color: $textLight;
-              }
             }
           }
         }

@@ -1,27 +1,22 @@
 import React from "react";
-import { Link } from "react-router-dom";
-import ItemImage from "../shared/ItemImage";
+import GridItem from "../shared/GridItem";
 
 const MovieCast = ({ cast }) => {
   return (
-    <section id="movie-cast">
+    <section>
       <div className="container">
         <h2>Cast Members ({cast.length})</h2>
-        <div className="items-list">
-          {cast.map((person, index) => {
-            return (
-              <div key={index} className="list-item">
-                <Link to={`/person/${person.id}`}>
-                  <ItemImage name={person.name} image={person.profile_path} />
-                </Link>
-                <div className="content">
-                  <h3>{person.name}</h3>
-                  <p>{person.character}</p>
-                </div>
-              </div>
-            );
-          })}
-        </div>
+        {cast.length > 0 ? (
+          <div className="grid-list">
+            {cast.map((person, index) => {
+              return (
+                <GridItem key={`Cast${index}`} data={person} path="/people" />
+              );
+            })}
+          </div>
+        ) : (
+          "No information available."
+        )}
       </div>
     </section>
   );

@@ -1,6 +1,7 @@
 @import "partials/variables";
 @import "partials/typography";
 @import "partials/mixins";
+@import "partials/utilities";
 @import "partials/buttons";
 @import "partials/forms";
 @import "partials/global";
@@ -8,12 +9,12 @@
 @import "components/navbar";
 @import "components/mobile-menu";
 @import "components/categories";
-@import "components/items-list";
+@import "components/data-status";
+@import "components/grid-list";
 @import "components/videos-list";
-@import "components/list-item";
+@import "components/grid-item";
 @import "components/providers";
 @import "components/pagination";
-@import "components/movie-header";
-@import "components/person-header";
+@import "components/header";
 @import "components/career-stats";
 @import "components/footer";
