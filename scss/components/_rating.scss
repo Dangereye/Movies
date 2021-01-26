@@ -1,0 +1,12 @@
+.rating {
+  margin-right: 8px;
+  > svg:not(:last-child) {
+    margin-right: 3px;
+  }
+  svg {
+    path {
+      stroke: $ratingStarsColor;
+      fill: $ratingStarsColor;
+    }
+  }
+}

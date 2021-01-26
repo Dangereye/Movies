@@ -28,14 +28,15 @@ header {
         color: #fff;
         align-self: center;
 
-        span + span::before {
-          content: ",";
-          display: inline-block;
-          padding-right: 8px;
-        }
+        span,
         span.group {
           font-size: 1.4rem;
           color: $textLight;
+          span + span::before {
+            content: ",";
+            display: inline-block;
+            padding-right: 8px;
+          }
         }
         span.group + span.group::before {
           content: "|";

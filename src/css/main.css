@@ -26,6 +26,10 @@ p + p {
   margin-top: 1rem;
 }
 
+a {
+  display: inline-block;
+}
+
 .py1 {
   padding: 1rem 0;
 }
@@ -94,6 +98,8 @@ button + .btn,
   margin-left: 2rem;
 }
 
+div + button,
+div + .btn,
 p + button,
 p + .btn {
   margin-top: 3rem;
@@ -279,15 +285,20 @@ main .history-previous-page {
 }
 
 #mobile-menu .container .mobile-menu > li:not(:last-child) {
-  margin-bottom: 1rem;
+  margin-bottom: 2rem;
 }
 
 #mobile-menu .container .mobile-menu .link-item a {
+  margin-bottom: 1rem;
   color: #fff;
 }
 
 #mobile-menu .container .mobile-menu .link-item .mobile-categories ul {
   margin-left: 0.5rem;
+}
+
+#mobile-menu .container .mobile-menu .link-item .mobile-categories ul > li:not(:last-child) {
+  margin-bottom: 0.5rem;
 }
 
 #mobile-menu .container .mobile-menu .link-item .mobile-categories ul li {
@@ -523,15 +534,17 @@ header .container .content .details {
       align-self: center;
 }
 
-header .container .content .details span + span::before {
-  content: ",";
-  display: inline-block;
-  padding-right: 8px;
-}
-
+header .container .content .details span,
 header .container .content .details span.group {
   font-size: 1.4rem;
   color: #ccc;
+}
+
+header .container .content .details span span + span::before,
+header .container .content .details span.group span + span::before {
+  content: ",";
+  display: inline-block;
+  padding-right: 8px;
 }
 
 header .container .content .details span.group + span.group::before {
@@ -565,6 +578,19 @@ header.bg-image::after {
   width: 100%;
   height: 100%;
   background-color: rgba(0, 0, 0, 0.9);
+}
+
+.rating {
+  margin-right: 8px;
+}
+
+.rating > svg:not(:last-child) {
+  margin-right: 3px;
+}
+
+.rating svg path {
+  stroke: #ffe818;
+  fill: #ffe818;
 }
 
 #career-stats {

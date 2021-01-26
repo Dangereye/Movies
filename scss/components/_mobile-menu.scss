@@ -18,14 +18,18 @@
 
     .mobile-menu {
       > li:not(:last-child) {
-        margin-bottom: 1rem;
+        margin-bottom: 2rem;
       }
       .link-item {
         a {
+          margin-bottom: 1rem;
           color: #fff;
         }
         .mobile-categories {
           ul {
+            > li:not(:last-child) {
+              margin-bottom: 0.5rem;
+            }
             margin-left: 0.5rem;
             li {
               color: $textLight;

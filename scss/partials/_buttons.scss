@@ -44,7 +44,8 @@ button,
     margin-left: 2rem;
   }
 }
-
+div + button,
+div + .btn,
 p + button,
 p + .btn {
   margin-top: 3rem;

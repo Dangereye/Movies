@@ -12,7 +12,7 @@ const ItemImage = ({ image, name, width, height }) => {
       />
     );
   }
-  return <img src={unavailable} alt={`${name}`} />;
+  if (!image) return <img src={unavailable} alt={`${name}`} />;
 };
 
 export default ItemImage;

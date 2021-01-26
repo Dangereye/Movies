@@ -9,7 +9,7 @@ const MovieHeader = ({ details, credits }) => {
     backgroundImage: `url(https://image.tmdb.org/t/p/w500${details.backdrop_path})`,
   };
   return (
-    <header className="bg-image" style={bgImage}>
+    <header className="bg-image" style={details.backdrop_path ? bgImage : null}>
       <div className="container">
         <div className="content">
           <div className="image">
