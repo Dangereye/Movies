@@ -5,11 +5,13 @@ import { fetchData } from "../api/FetchData";
 import HistoryPreviousPage from "../components/shared/HistoryPreviousPage";
 import DataStatus from "../components/shared/DataStatus";
 import TvHeader from "../components/tv/TvHeader";
+import Seasons from "../components/tv/Seasons";
+import SimilarTvShows from "../components/tv/SimilarTvShows";
 
 const TVShow = () => {
   const apiKey = process.env.REACT_APP_KEY;
   const { id } = useParams();
-  const tvShowDetails = useQuery("tv-show details", () =>
+  const tvShowDetails = useQuery(["tv-show details", id], () =>
     fetchData(`/tv/${id}?api_key=${apiKey}&language=en`)
   );
 
@@ -22,11 +24,13 @@ const TVShow = () => {
     );
   }
   if (tvShowDetails.isSuccess) {
+    console.log("TVShow", tvShowDetails);
     return (
       <>
-        {console.log(tvShowDetails)}
         <HistoryPreviousPage />
         <TvHeader details={tvShowDetails.data} />
+        <Seasons details={tvShowDetails.data} />
+        <SimilarTvShows id={id} apiKey={apiKey} />
       </>
     );
   }

@@ -13,15 +13,14 @@ import TvCredits from "../components/people/TvCredits";
 const Person = () => {
   const apiKey = process.env.REACT_APP_KEY;
   const { id } = useParams();
-  const personDetails = useQuery("person details", () =>
+  const personDetails = useQuery(["person details", id], () =>
     fetchData(`/person/${id}?api_key=${apiKey}&language=en`)
   );
-  const personMovieCredits = useQuery("person movie credits", () =>
+  const personMovieCredits = useQuery(["person movie credits", id], () =>
     fetchData(`/person/${id}/movie_credits?api_key=${apiKey}&language=en`)
   );
-  const personTvCredits = useQuery(
-    ["person tv credits", `/person/${id}/tv_credits`],
-    () => fetchData(`/person/${id}/tv_credits?api_key=${apiKey}&language=en`)
+  const personTvCredits = useQuery(["person tv credits", id], () =>
+    fetchData(`/person/${id}/tv_credits?api_key=${apiKey}&language=en`)
   );
 
   if (

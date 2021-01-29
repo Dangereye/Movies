@@ -34,6 +34,7 @@ const GridList = ({ title, endPoint, context }) => {
   if (isSuccess) {
     return (
       <>
+        {console.log("GridListPage:", data)}
         {isSuccess && (
           <section>
             <div className="container">

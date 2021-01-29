@@ -1,0 +1,21 @@
+.seasons {
+  padding: 2rem 0;
+  .season {
+    padding: 2rem 0;
+    display: grid;
+    grid-template-columns: 30rem 1fr;
+    align-items: center;
+    gap: 4rem;
+
+    .image {
+      width: 100%;
+      img {
+        width: 100%;
+      }
+    }
+
+    @media (max-width: 720px) {
+      grid-template-columns: 1fr;
+    }
+  }
+}

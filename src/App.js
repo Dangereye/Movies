@@ -13,9 +13,11 @@ import People from "./pages/People";
 import Person from "./pages/Person";
 import TVShows from "./pages/TVShows";
 import TVShow from "./pages/TVShow";
+import Season from "./pages/Season";
 
 const App = () => {
   const [mobileMenuIsOpen, setMobileMenuIsOpen] = useState(false);
+
   return (
     <div id="app">
       <MovieContextProvider>
@@ -29,7 +31,12 @@ const App = () => {
                 <Route path="/movies" exact component={Movies} />
                 <Route path="/movies/:id" component={Movie} />
                 <Route path="/tv-shows" exact component={TVShows} />
-                <Route path="/tv-shows/:id" component={TVShow} />
+                <Route path="/tv-shows/:id" exact component={TVShow} />
+                <Route
+                  path="/tv-shows/:id/season/:season"
+                  exact
+                  component={Season}
+                />
                 <Route path="/people" exact component={People} />
                 <Route path="/people/:id" exact component={Person} />
               </Switch>

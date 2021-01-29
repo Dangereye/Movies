@@ -54,20 +54,25 @@ const PersonHeader = ({ details, movies, tv }) => {
               <span>Born</span>
               <FullDate date={details.data.birthday} />
             </span>
-            <span className="group">{details.data.place_of_birth}</span>
+            <span className="group">
+              {details.data.place_of_birth
+                ? details.data.place_of_birth
+                : "Unknown birth place."}
+            </span>
             {details.data.deathday && (
               <span className="group">
                 <span>Died</span>
                 <FullDate date={details.data.deathday} />
               </span>
             )}
-
-            {biography && (
+            <h3>Biography</h3>
+            {biography ? (
               <>
-                <h3>Biography</h3>
                 <p>{biography[0]}.</p>
                 {biography[1] && <p>{biography[1]}.</p>}
               </>
+            ) : (
+              <p>Currently unavailable.</p>
             )}
 
             {details.data.homepage && (

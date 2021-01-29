@@ -163,6 +163,25 @@ main .history-previous-page {
   background-color: #dedede;
 }
 
+main span,
+main span.group {
+  font-size: 1.4rem;
+}
+
+main span span + span::before,
+main span.group span + span::before {
+  content: ",";
+  display: inline-block;
+  padding-right: 8px;
+}
+
+main span.group + span.group::before {
+  content: "|";
+  display: inline-block;
+  font-size: 1.8rem;
+  padding: 0 8px;
+}
+
 #navbar {
   width: 100%;
   min-height: 56px;
@@ -424,6 +443,11 @@ main .history-previous-page {
   margin-bottom: 1rem;
 }
 
+.grid-item .content .number-of-episodes {
+  font-size: 1.4rem;
+  color: #737373;
+}
+
 .grid-item .content .item-date {
   font-size: 1.6rem;
 }
@@ -536,22 +560,7 @@ header .container .content .details {
 
 header .container .content .details span,
 header .container .content .details span.group {
-  font-size: 1.4rem;
   color: #ccc;
-}
-
-header .container .content .details span span + span::before,
-header .container .content .details span.group span + span::before {
-  content: ",";
-  display: inline-block;
-  padding-right: 8px;
-}
-
-header .container .content .details span.group + span.group::before {
-  content: "|";
-  display: inline-block;
-  font-size: 1.8rem;
-  padding: 0 8px;
 }
 
 header .container .content .details p {
@@ -626,6 +635,67 @@ header.bg-image::after {
 
 #career-stats .container .content .stat-card p {
   text-align: center;
+}
+
+.seasons {
+  padding: 2rem 0;
+}
+
+.seasons .season {
+  padding: 2rem 0;
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: 30rem 1fr;
+      grid-template-columns: 30rem 1fr;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  gap: 4rem;
+}
+
+.seasons .season .image {
+  width: 100%;
+}
+
+.seasons .season .image img {
+  width: 100%;
+}
+
+@media (max-width: 720px) {
+  .seasons .season {
+    -ms-grid-columns: 1fr;
+        grid-template-columns: 1fr;
+  }
+}
+
+.episodes {
+  padding: 2rem 0;
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: (minmax(32rem, 1fr))[auto-fit];
+      grid-template-columns: repeat(auto-fit, minmax(32rem, 1fr));
+  gap: 4rem;
+}
+
+.episodes .episode {
+  background-color: #fff;
+}
+
+.episodes .episode .image {
+  width: 100%;
+}
+
+.episodes .episode .image img {
+  width: 100%;
+  height: auto;
+}
+
+.episodes .episode .details {
+  padding: 2rem;
+}
+
+.episodes .episode .details h2 {
+  font-size: 1.6rem;
 }
 
 #footer {

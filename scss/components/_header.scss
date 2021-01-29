@@ -30,19 +30,7 @@ header {
 
         span,
         span.group {
-          font-size: 1.4rem;
           color: $textLight;
-          span + span::before {
-            content: ",";
-            display: inline-block;
-            padding-right: 8px;
-          }
-        }
-        span.group + span.group::before {
-          content: "|";
-          display: inline-block;
-          font-size: 1.8rem;
-          padding: 0 8px;
         }
 
         p {

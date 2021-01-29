@@ -13,10 +13,10 @@ const MovieDetails = () => {
   const apiKey = process.env.REACT_APP_KEY;
   const { id } = useParams();
 
-  const movieDetails = useQuery("movie details", () =>
+  const movieDetails = useQuery(["movie details", id], () =>
     fetchData(`/movie/${id}?api_key=${apiKey}&language=en`)
   );
-  const movieCredits = useQuery("movie credits", () =>
+  const movieCredits = useQuery(["movie credits", id], () =>
     fetchData(`/movie/${id}/credits?api_key=${apiKey}&language=en`)
   );
 

@@ -2,8 +2,9 @@ import React from "react";
 import ImageItem from "../shared/ItemImage";
 import Genres from "../shared/Genres";
 import HomePageButton from "../shared/HomePageButton";
-import Rating from "../shared/Rating";
+import StarRating from "../shared/StarRating";
 import Year from "../shared/Year";
+import Overview from "../shared/Overview";
 
 const TvHeader = ({ details }) => {
   const bgImage = {
@@ -26,22 +27,18 @@ const TvHeader = ({ details }) => {
             <span className="group">
               <Year date={details.first_air_date} />
             </span>
-            <span className="group">{details.number_of_seasons} Seasons</span>
+            <span className="group">{details.number_of_seasons} Season(s)</span>
             <span className="group">
               <Genres genres={details.genres} />
             </span>
 
             <h3>Overview</h3>
-            <p>{details.overview}</p>
+            <Overview data={details.overview} />
             <div className="py1">
-              <Rating data={details.vote_average} />
+              <StarRating data={details.vote_average} />
               <span>{details.vote_count} votes.</span>
             </div>
-            {details.homepage ? (
-              <HomePageButton gender={1} url={details.homepage} />
-            ) : (
-              ""
-            )}
+            <HomePageButton url={details.homepage} />
           </div>
         </div>
       </div>

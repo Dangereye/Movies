@@ -3,6 +3,8 @@ import Genres from "../shared/Genres";
 import RunTime from "../shared/RunTime";
 import Year from "../shared/Year";
 import ImageItem from "../shared/ItemImage";
+import StarRating from "../shared/StarRating";
+import Overview from "../shared/Overview";
 
 const MovieHeader = ({ details, credits }) => {
   const bgImage = {
@@ -33,7 +35,11 @@ const MovieHeader = ({ details, credits }) => {
             </span>
 
             <h3>Overview</h3>
-            <p>{details.overview}</p>
+            <Overview data={details.overview} />
+            <div className="py1">
+              <StarRating data={details.vote_average} />
+              <span>{details.vote_count} votes.</span>
+            </div>
             <h3>Director(s)</h3>
             <p>
               {credits.crew &&

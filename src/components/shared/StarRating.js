@@ -1,7 +1,7 @@
 import React from "react";
 import { BsStarFill, BsStarHalf, BsStar } from "react-icons/bs";
 
-const Rating = ({ data }) => {
+const StarRating = ({ data }) => {
   switch (Math.floor(data)) {
     case 1:
       return (
@@ -105,8 +105,16 @@ const Rating = ({ data }) => {
         </span>
       );
     default:
-      return null;
+      return (
+        <span className="rating">
+          <BsStar />
+          <BsStar />
+          <BsStar />
+          <BsStar />
+          <BsStar />
+        </span>
+      );
   }
 };
 
-export default Rating;
+export default StarRating;
