@@ -45,9 +45,6 @@ const TVShow = () => {
     tvShowCredits.isSuccess &&
     tvShowSimilar.isSuccess
   ) {
-    console.log("TVShow Details", tvShowDetails);
-    console.log("TVShow Credits", tvShowCredits);
-    console.log("TVShow Similar", tvShowSimilar);
     return (
       <>
         <HistoryPreviousPage />

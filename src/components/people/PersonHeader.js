@@ -7,11 +7,6 @@ import ImageItem from "../shared/ItemImage";
 
 const PersonHeader = ({ details, movies, tv }) => {
   const { biography, setBiography } = useContext(PeopleContext);
-
-  console.log("Details", details);
-  console.log("Movies", movies);
-  console.log("TV", tv);
-
   useEffect(() => {
     setBiography("");
     if (details.data.biography) {

@@ -1,7 +1,6 @@
 import React from "react";
 
 const KnownFor = ({ department, gender }) => {
-  console.log(department);
   if (department === "Acting" && gender === 0) {
     return <span>{department}</span>;
   } else if (department === "Acting" && gender === 1) {

@@ -31,8 +31,6 @@ const Season = () => {
   if (seasonDetails.isSuccess && seasonCredits.isSuccess) {
     return (
       <>
-        {console.log("SeasonDetails", seasonDetails)}
-        {console.log("SeasonCredits", seasonCredits)}
         <HistoryPreviousPage />
         <SeasonHeader details={seasonDetails.data} />
         <GridList
