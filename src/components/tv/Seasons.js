@@ -6,7 +6,7 @@ const Seasons = ({ details }) => {
     <section id="seasons">
       <div className="container">
         <h2>
-          {details.seasons.length} Seasons - {details.status}
+          {details.seasons.length} Season(s) - {details.status}
         </h2>
         <div className="grid-list">
           {details.seasons.map((season, index) => {

@@ -1,15 +1,15 @@
 export const categories = {
   movies: [
-    { name: "Popular", endPoint: "/movie/popular" },
-    { name: "Now Playing", endPoint: "/movie/now_playing" },
-    { name: "Upcoming", endPoint: "/movie/upcoming" },
-    { name: "Top Rated", endPoint: "/movie/top_rated", link: "/movies" },
+    { name: "Popular", path: "/popular-movies" },
+    { name: "In theatres", path: "/in-theatres-movies" },
+    { name: "Upcoming", path: "/upcoming-movies" },
+    { name: "Top rated", path: "/top-rated-movies" },
   ],
-  people: [{ name: "Popular", endPoint: "/person/popular" }],
+  people: [{ name: "Popular", path: "/popular-people" }],
   tv: [
-    { name: "Popular", endPoint: "/tv/popular" },
-    { name: "Top Rated", endPoint: "/tv/top_rated" },
-    { name: "On Air", endPoint: "/tv/on_the_air" },
-    { name: "Today", endPoint: "/tv/airing_today" },
+    { name: "Popular", path: "/popular-tv-shows" },
+    { name: "Top rated", path: "/top-rated-tv-shows" },
+    { name: "This week", path: "/this-week-tv-shows" },
+    { name: "Today", path: "today-tv-shows" },
   ],
 };

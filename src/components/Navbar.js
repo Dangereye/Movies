@@ -12,17 +12,17 @@ const Navbar = ({ open, toggle }) => {
         </Link>
         <ul className="desktop-menu">
           <li className="link-item">
-            <Link to="/movies" className="link">
+            <Link to="/popular-movies" className="link">
               Movies
             </Link>
           </li>
           <li className="link-item">
-            <Link to="/tv-shows" className="link">
+            <Link to="/popular-tv-shows" className="link">
               TV Shows
             </Link>
           </li>
           <li className="link-item">
-            <Link to="/people" className="link">
+            <Link to="/popular-people" className="link">
               People
             </Link>
           </li>

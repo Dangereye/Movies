@@ -14,6 +14,7 @@ import Person from "./pages/Person";
 import TVShows from "./pages/TVShows";
 import TVShow from "./pages/TVShow";
 import Season from "./pages/Season";
+import NotFound from "./pages/NotFound";
 
 const App = () => {
   const [mobileMenuIsOpen, setMobileMenuIsOpen] = useState(false);
@@ -28,17 +29,24 @@ const App = () => {
             <main>
               <Switch>
                 <Route path="/" exact component={Home} />
-                <Route path="/movies" exact component={Movies} />
-                <Route path="/movies/:id" component={Movie} />
-                <Route path="/tv-shows" exact component={TVShows} />
-                <Route path="/tv-shows/:id" exact component={TVShow} />
+                <Route path="/popular-movies" exact component={Movies} />
+                <Route path="/in-theatres-movies" exact component={Movies} />
+                <Route path="/top-rated-movies" exact component={Movies} />
+                <Route path="/upcoming-movies" exact component={Movies} />
+                <Route path="/movie/:id" component={Movie} />
+                <Route path="/popular-tv-shows" exact component={TVShows} />
+                <Route path="/top-rated-tv-shows" exact component={TVShows} />
+                <Route path="/this-week-tv-shows" exact component={TVShows} />
+                <Route path="/today-tv-shows" exact component={TVShows} />
+                <Route path="/tv-show/:id" exact component={TVShow} />
                 <Route
                   path="/tv-shows/:id/season/:season"
                   exact
                   component={Season}
                 />
-                <Route path="/people" exact component={People} />
-                <Route path="/people/:id" exact component={Person} />
+                <Route path="/popular-people" exact component={People} />
+                <Route path="/person/:id" exact component={Person} />
+                <Route path="*" component={NotFound} />
               </Switch>
             </main>
             <Footer />

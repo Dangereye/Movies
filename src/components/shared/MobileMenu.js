@@ -18,11 +18,10 @@ const MobileMenu = ({ open, toggle }) => {
       <div className="container">
         <ul className="mobile-menu">
           <li className="link-item">
-            <Link to="/movies">Movies</Link>
-            {pathname === "/movies" ? (
+            <Link to="/popular-movies">Movies</Link>
+            {pathname.includes("movies") ? (
               <MobileCategories
                 categories={movies.categories.movies}
-                setCategory={movies.setCategory}
                 setPage={movies.setPage}
                 open={open}
                 toggle={toggle}
@@ -31,11 +30,10 @@ const MobileMenu = ({ open, toggle }) => {
           </li>
 
           <li className="link-item">
-            <Link to="/tv-shows">TV Shows</Link>
-            {pathname === "/tv-shows" ? (
+            <Link to="/popular-tv-shows">TV Shows</Link>
+            {pathname.includes("tv-shows") ? (
               <MobileCategories
                 categories={tv.categories.tv}
-                setCategory={tv.setCategory}
                 setPage={tv.setPage}
                 open={open}
                 toggle={toggle}
@@ -43,7 +41,7 @@ const MobileMenu = ({ open, toggle }) => {
             ) : null}
           </li>
           <li className="link-item">
-            <Link to="/people" onClick={() => toggle(!open)}>
+            <Link to="/popular-people" onClick={() => toggle(!open)}>
               People
             </Link>
           </li>

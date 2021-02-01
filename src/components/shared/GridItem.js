@@ -5,7 +5,7 @@ import Year from "./Year";
 
 const GridItem = ({ data, path }) => {
   switch (path) {
-    case "/movies":
+    case "/movie":
       return (
         <div className="grid-item">
           <Link to={`${path}/${data.id}`}>
@@ -22,27 +22,10 @@ const GridItem = ({ data, path }) => {
           </div>
         </div>
       );
-    case "/tv-shows":
+    case "/tv-show":
       return (
         <div className="grid-item">
           <Link to={`${path}/${data.id}`}>
-            <ItemImage
-              image={data.poster_path}
-              name={data.name}
-              width="188px"
-              height="283px"
-            />
-          </Link>
-          <div className="content">
-            <h3 className="item-title">{data.name}</h3>
-            <Year date={data.first_air_date} />
-          </div>
-        </div>
-      );
-    case "/tv-shows/:id":
-      return (
-        <div className="grid-item">
-          <Link to={`/tv-shows/${data.id}`}>
             <ItemImage
               image={data.poster_path}
               name={data.name}
@@ -75,7 +58,7 @@ const GridItem = ({ data, path }) => {
           </div>
         </div>
       );
-    case "/people":
+    case "/person":
       return (
         <div className="grid-item">
           <Link to={`${path}/${data.id}`}>
@@ -88,6 +71,7 @@ const GridItem = ({ data, path }) => {
           </Link>
           <div className="content">
             <h3 className="item-title">{data.name}</h3>
+            {data.character && <p>{data.character}</p>}
           </div>
         </div>
       );

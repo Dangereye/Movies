@@ -7,8 +7,7 @@ import HistoryPreviousPage from "../components/shared/HistoryPreviousPage";
 import PersonHeader from "../components/people/PersonHeader";
 import CareerStats from "../components/people/CareerStats";
 import Biography from "../components/people/Biography";
-import MovieCredits from "../components/people/MovieCredits";
-import TvCredits from "../components/people/TvCredits";
+import GridList from "../components/shared/GridList";
 
 const Person = () => {
   const apiKey = process.env.REACT_APP_KEY;
@@ -24,7 +23,7 @@ const Person = () => {
   );
 
   if (
-    personDetails.isloading ||
+    personDetails.isLoading ||
     personMovieCredits.isLoading ||
     personTvCredits.isLoading
   ) {
@@ -60,8 +59,18 @@ const Person = () => {
           popularity={personDetails.data.popularity}
         />
         <Biography />
-        <MovieCredits data={personMovieCredits.data.cast} />
-        <TvCredits data={personTvCredits.data.cast} />
+        <GridList
+          title="Movie credits"
+          list={personMovieCredits.data.cast}
+          path="/movie"
+          totalResults={null}
+        />
+        <GridList
+          title="TV credits"
+          list={personTvCredits.data.cast}
+          path="/tv-show"
+          totalResults={null}
+        />
       </>
     );
   }

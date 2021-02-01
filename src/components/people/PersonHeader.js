@@ -16,17 +16,21 @@ const PersonHeader = ({ details, movies, tv }) => {
     setBiography("");
     if (details.data.biography) {
       const str = details.data.biography;
-      const match = str.match(/\.(\s)/g);
-      const res = str.split(match[0]);
-      res.forEach((item, index) => {
-        if (item.length < 50 && res[index - 1]) {
-          res[index - 1] = [...res[index - 1], " ", ...item];
-          res.splice(index, 1);
-        } else {
-          return;
-        }
-      });
-      setBiography(res);
+      const match = str.match(/\.\s/g);
+      if (match) {
+        const res = str.split(/\.\s/g);
+        res.forEach((item, index) => {
+          if (item.length < 50 && res[index - 1]) {
+            res[index - 1] = [...res[index - 1], " ", ...item];
+            res.splice(index, 1);
+          } else {
+            return;
+          }
+        });
+        setBiography(res);
+      } else {
+        setBiography(str);
+      }
     }
   }, [setBiography, details.data.biography]);
 
@@ -57,7 +61,7 @@ const PersonHeader = ({ details, movies, tv }) => {
             <span className="group">
               {details.data.place_of_birth
                 ? details.data.place_of_birth
-                : "Unknown birth place."}
+                : "Unknown birth place"}
             </span>
             {details.data.deathday && (
               <span className="group">
@@ -68,8 +72,11 @@ const PersonHeader = ({ details, movies, tv }) => {
             <h3>Biography</h3>
             {biography ? (
               <>
-                <p>{biography[0]}.</p>
-                {biography[1] && <p>{biography[1]}.</p>}
+                {Array.isArray(biography) ? <p>{biography[0]}.</p> : null}
+                {Array.isArray(biography) && biography[1] ? (
+                  <p>{biography[1]}.</p>
+                ) : null}
+                {!Array.isArray(biography) && <p>{biography}.</p>}
               </>
             ) : (
               <p>Currently unavailable.</p>
