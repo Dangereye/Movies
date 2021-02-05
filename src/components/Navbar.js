@@ -1,8 +1,12 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { MdLocalMovies } from "react-icons/md";
 import { Link } from "react-router-dom";
 
 const Navbar = ({ open, toggle }) => {
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  });
+
   return (
     <nav id="navbar">
       <div className="container">
@@ -40,4 +44,4 @@ const Navbar = ({ open, toggle }) => {
   );
 };
 
-export default React.memo(Navbar);
+export default Navbar;
