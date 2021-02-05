@@ -40,4 +40,4 @@ const Navbar = ({ open, toggle }) => {
   );
 };
 
-export default Navbar;
+export default React.memo(Navbar);

@@ -19,4 +19,4 @@ const DesktopCategories = ({ categories, setPage }) => {
   );
 };
 
-export default DesktopCategories;
+export default React.memo(DesktopCategories);

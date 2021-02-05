@@ -10,6 +10,7 @@ const MovieHeader = ({ details, credits }) => {
   const bgImage = {
     backgroundImage: `url(https://image.tmdb.org/t/p/w500${details.backdrop_path})`,
   };
+  const director = credits.crew.find((member) => member.job === "Director");
   return (
     <header className="bg-image" style={details.backdrop_path ? bgImage : null}>
       <div className="container">
@@ -40,17 +41,8 @@ const MovieHeader = ({ details, credits }) => {
               <StarRating data={details.vote_average} />
               <span>{details.vote_count} votes.</span>
             </div>
-            <h3>Director(s)</h3>
-            <p>
-              {credits.crew &&
-                credits.crew.map((member) => {
-                  if (member.job === "Director") {
-                    return member.name;
-                  } else {
-                    return "";
-                  }
-                })}
-            </p>
+            <h3>Director</h3>
+            <p>{director.name ? director.name : "Unknown"}</p>
           </div>
         </div>
       </div>
@@ -58,4 +50,4 @@ const MovieHeader = ({ details, credits }) => {
   );
 };
 
-export default MovieHeader;
+export default React.memo(MovieHeader);

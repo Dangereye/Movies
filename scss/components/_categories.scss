@@ -17,8 +17,10 @@
       }
 
       li {
-        color: $textDark;
-        cursor: pointer;
+        a {
+          color: $textDark;
+          cursor: pointer;
+        }
       }
     }
   }

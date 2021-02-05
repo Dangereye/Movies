@@ -37,4 +37,4 @@ const GridList = ({ title, list, path, totalResults }) => {
   );
 };
 
-export default GridList;
+export default React.memo(GridList);

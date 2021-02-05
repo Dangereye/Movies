@@ -3,6 +3,7 @@ import CommaSeparatedNumber from "./CommaSeparatedNumber";
 import VideoItem from "./VideoItem";
 
 const VideoList = ({ title, videos, totalResults }) => {
+  console.log("VideoList rendered");
   return (
     <section>
       <div className="container">
@@ -23,4 +24,4 @@ const VideoList = ({ title, videos, totalResults }) => {
   );
 };
 
-export default VideoList;
+export default React.memo(VideoList);

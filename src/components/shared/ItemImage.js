@@ -15,29 +15,26 @@ const ItemImage = ({ image, name, width, height, landscape }) => {
     );
   }
 
-  if (!image && !landscape) {
-    return (
-      <img
-        className="image-item"
-        width={height}
-        height={height}
-        src={unavailablePortrait}
-        alt={`${name}`}
-      />
-    );
-  }
-
   if (!image && landscape) {
     return (
       <img
         className="image-item"
-        width={height}
+        width={width}
         height={height}
         src={unavailableLandscape}
         alt={`${name}`}
       />
     );
   }
+  return (
+    <img
+      className="image-item"
+      width={width}
+      height={height}
+      src={unavailablePortrait}
+      alt={`${name}`}
+    />
+  );
 };
 
-export default ItemImage;
+export default React.memo(ItemImage);

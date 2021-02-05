@@ -48,29 +48,31 @@ const Person = () => {
     return (
       <>
         <HistoryPreviousPage />
-        <PersonHeader
-          details={personDetails}
-          movies={personMovieCredits}
-          tv={personTvCredits}
-        />
+        <PersonHeader details={personDetails} />
         <CareerStats
           movies={personMovieCredits.data.cast}
           tv={personTvCredits.data.cast}
           popularity={personDetails.data.popularity}
         />
-        <Biography />
-        <GridList
-          title="Movie credits"
-          list={personMovieCredits.data.cast}
-          path="/movie"
-          totalResults={null}
-        />
-        <GridList
-          title="TV credits"
-          list={personTvCredits.data.cast}
-          path="/tv-show"
-          totalResults={null}
-        />
+        {personDetails.data.biography.length > 0 && (
+          <Biography data={personDetails.data.biography} />
+        )}
+        {personMovieCredits.data.cast.length > 0 && (
+          <GridList
+            title="Movie credits"
+            list={personMovieCredits.data.cast}
+            path="/movie"
+            totalResults={null}
+          />
+        )}
+        {personTvCredits.data.cast.length > 0 && (
+          <GridList
+            title="TV credits"
+            list={personTvCredits.data.cast}
+            path="/tv-show"
+            totalResults={null}
+          />
+        )}
       </>
     );
   }

@@ -80,4 +80,4 @@ const GridItem = ({ data, path }) => {
   }
 };
 
-export default GridItem;
+export default React.memo(GridItem);

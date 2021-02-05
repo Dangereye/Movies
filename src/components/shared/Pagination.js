@@ -12,9 +12,10 @@ const Pagination = ({ page, setPage, pages, setPages, totalPages }) => {
       setPage((page) => page + 1);
     }
   };
+
   useEffect(() => {
     setPages(totalPages);
-  });
+  }, [setPages, totalPages]);
 
   return (
     <div id="pagination">
@@ -33,4 +34,4 @@ const Pagination = ({ page, setPage, pages, setPages, totalPages }) => {
   );
 };
 
-export default Pagination;
+export default React.memo(Pagination);

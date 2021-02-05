@@ -1,30 +1,20 @@
-import React, { useEffect, useContext } from "react";
+import React, { useEffect, useState } from "react";
 import FullDate from "../shared/FullDate";
 import KnownFor from "./KnownFor";
 import HomePageButton from "../shared/HomePageButton";
-import { PeopleContext } from "../../contexts/PeopleContext";
 import ImageItem from "../shared/ItemImage";
 
-const PersonHeader = ({ details, movies, tv }) => {
-  const { biography, setBiography } = useContext(PeopleContext);
+const PersonHeader = ({ details }) => {
+  const [biography, setBiography] = useState([]);
   useEffect(() => {
-    setBiography("");
+    setBiography([]);
     if (details.data.biography) {
       const str = details.data.biography;
-      const match = str.match(/\.\s/g);
+      const match = str.match(/[A-Z][^.]+.?[^s]?/g);
       if (match) {
-        const res = str.split(/\.\s/g);
-        res.forEach((item, index) => {
-          if (item.length < 50 && res[index - 1]) {
-            res[index - 1] = [...res[index - 1], " ", ...item];
-            res.splice(index, 1);
-          } else {
-            return;
-          }
-        });
-        setBiography(res);
+        setBiography([...match]);
       } else {
-        setBiography(str);
+        setBiography([...str]);
       }
     }
   }, [setBiography, details.data.biography]);
@@ -65,13 +55,10 @@ const PersonHeader = ({ details, movies, tv }) => {
               </span>
             )}
             <h3>Biography</h3>
-            {biography ? (
+            {biography.length > 0 ? (
               <>
-                {Array.isArray(biography) ? <p>{biography[0]}.</p> : null}
-                {Array.isArray(biography) && biography[1] ? (
-                  <p>{biography[1]}.</p>
-                ) : null}
-                {!Array.isArray(biography) && <p>{biography}.</p>}
+                <p>{biography[0]}</p>
+                {biography[1] ? <p>{biography[1]}</p> : null}
               </>
             ) : (
               <p>Currently unavailable.</p>

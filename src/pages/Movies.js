@@ -1,8 +1,8 @@
-import React, { useContext } from "react";
+import React, { useState } from "react";
 import { useQuery } from "react-query";
 import { useLocation } from "react-router-dom";
 import { fetchData } from "../api/FetchData";
-import { MovieContext } from "../contexts/MovieContext";
+import { categories } from "../data/categories";
 import DataStatus from "../components/shared/DataStatus";
 import DesktopCategories from "../components/shared/DesktopCategories";
 import GridList from "../components/shared/GridList";
@@ -11,9 +11,8 @@ import Pagination from "../components/shared/Pagination";
 const Movies = () => {
   const apiKey = process.env.REACT_APP_KEY;
   const { pathname: path } = useLocation();
-  const { categories, page, setPage, pages, setPages } = useContext(
-    MovieContext
-  );
+  const [page, setPage] = useState(1);
+  const [pages, setPages] = useState(1);
   let params;
   let title;
   switch (path) {
