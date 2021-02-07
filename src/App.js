@@ -12,29 +12,31 @@ import TVShows from "./pages/TVShows";
 import TVShow from "./pages/TVShow";
 import Season from "./pages/Season";
 import NotFound from "./pages/NotFound";
+import Search from "./pages/Search";
 
 const App = () => {
   const [mobileMenuIsOpen, setMobileMenuIsOpen] = useState(false);
   return (
     <div id="app">
-      <Navbar open={mobileMenuIsOpen} toggle={setMobileMenuIsOpen} />
+      <Navbar menuOpen={mobileMenuIsOpen} menuToggle={setMobileMenuIsOpen} />
       <MobileMenu open={mobileMenuIsOpen} toggle={setMobileMenuIsOpen} />
       <main>
         <Switch>
           <Route path="/" exact component={Home} />
-          <Route path="/popular-movies" exact component={Movies} />
-          <Route path="/in-theatres-movies" exact component={Movies} />
-          <Route path="/top-rated-movies" exact component={Movies} />
-          <Route path="/upcoming-movies" exact component={Movies} />
+          <Route path="/movies-popular" exact component={Movies} />
+          <Route path="/movies-in-theatres" exact component={Movies} />
+          <Route path="/movies-top-rated" exact component={Movies} />
+          <Route path="/movies-upcoming" exact component={Movies} />
           <Route path="/movie/:id" component={Movie} />
-          <Route path="/popular-tv-shows" exact component={TVShows} />
-          <Route path="/top-rated-tv-shows" exact component={TVShows} />
-          <Route path="/this-week-tv-shows" exact component={TVShows} />
-          <Route path="/today-tv-shows" exact component={TVShows} />
+          <Route path="/tv-shows-popular" exact component={TVShows} />
+          <Route path="/tv-shows-top-rated" exact component={TVShows} />
+          <Route path="/tv-shows-this-week" exact component={TVShows} />
+          <Route path="/tv-shows-today" exact component={TVShows} />
           <Route path="/tv-show/:id" exact component={TVShow} />
           <Route path="/tv-shows/:id/season/:season" exact component={Season} />
-          <Route path="/popular-people" exact component={People} />
+          <Route path="/people-popular" exact component={People} />
           <Route path="/person/:id" exact component={Person} />
+          <Route path="/search" exact component={Search} />
           <Route path="*" component={NotFound} />
         </Switch>
       </main>

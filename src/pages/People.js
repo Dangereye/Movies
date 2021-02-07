@@ -29,6 +29,7 @@ const People = () => {
     return (
       <>
         <DesktopCategories categories={categories.people} setPage={setPage} />
+
         <GridList
           title="Popular people"
           list={data.results}

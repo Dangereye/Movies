@@ -26,6 +26,13 @@ body {
   grid-template-rows: 1fr auto;
 }
 
+.container {
+  margin: 0 auto;
+  padding: 0;
+  width: 100%;
+  max-width: $pageWidth;
+}
+
 main {
   width: 100%;
   padding-top: $navHeight;
@@ -40,14 +47,8 @@ main {
     }
   }
 
-  .container {
-    margin: 0 auto;
-    padding: 0;
-    width: 100%;
-    max-width: $pageWidth;
-  }
-
-  .history-previous-page {
+  div.history-previous-page {
+    padding: $pagePadding;
     background-color: $bgGrey;
   }
 

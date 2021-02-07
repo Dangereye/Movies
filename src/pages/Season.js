@@ -29,7 +29,6 @@ const Season = () => {
     );
   }
   if (seasonDetails.isSuccess && seasonCredits.isSuccess) {
-    console.log("Details", seasonDetails);
     return (
       <>
         <HistoryPreviousPage />

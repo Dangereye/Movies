@@ -79,7 +79,7 @@ const Movie = () => {
         )}
         {movieSimilar.data.results.length > 0 && (
           <GridList
-            title="Similar movies"
+            title="You may also like.."
             list={movieSimilar.data.results}
             path="/movie"
             totalResults={null}

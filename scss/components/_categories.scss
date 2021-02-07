@@ -7,6 +7,16 @@
     margin: 0 auto;
     width: 100%;
     max-width: $pageWidth;
+    display: flex;
+
+    .search {
+      margin-right: 2rem;
+      display: flex;
+      align-items: center;
+      justify-content: left;
+      width: 24px;
+      cursor: pointer;
+    }
 
     ul {
       display: flex;

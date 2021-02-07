@@ -13,18 +13,13 @@ const GridList = ({ title, list, path, totalResults }) => {
         <div className="grid-list">
           {list
             .sort((a, b) => {
-              let aDate, bDate;
-              if (a.first_air_date) {
-                aDate = new Date(a.first_air_date);
-                bDate = new Date(b.first_air_date);
-                return bDate - aDate;
-              }
-              if (a.release_date) {
-                aDate = new Date(a.release_date);
-                bDate = new Date(b.release_date);
-                return bDate - aDate;
-              }
-              return null;
+              const aDate = new Date(
+                a.first_air_date ? a.first_air_date : a.release_date
+              );
+              const bDate = new Date(
+                b.first_air_date ? b.first_air_date : b.release_date
+              );
+              return bDate - aDate;
             })
             .map((item, index) => {
               return (

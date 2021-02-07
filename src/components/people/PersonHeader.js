@@ -34,10 +34,7 @@ const PersonHeader = ({ details }) => {
           <div className="details">
             <h1>{details.data.name}</h1>
             <span className="group">
-              <KnownFor
-                department={details.data.known_for_department}
-                gender={details.data.gender}
-              />
+              <KnownFor department={details.data.known_for_department} />
             </span>
             <span className="group">
               <span>Born</span>

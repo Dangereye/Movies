@@ -8,7 +8,7 @@ const GridItem = ({ data, path }) => {
     case "/movie":
       return (
         <div className="grid-item">
-          <Link to={`${path}/${data.id}`}>
+          <Link to={`/movie/${data.id}`}>
             <ItemImage
               image={data.poster_path}
               name={data.title}
@@ -25,7 +25,7 @@ const GridItem = ({ data, path }) => {
     case "/tv-show":
       return (
         <div className="grid-item">
-          <Link to={`${path}/${data.id}`}>
+          <Link to={`/tv-show/${data.id}`}>
             <ItemImage
               image={data.poster_path}
               name={data.name}
@@ -61,7 +61,7 @@ const GridItem = ({ data, path }) => {
     case "/person":
       return (
         <div className="grid-item">
-          <Link to={`${path}/${data.id}`}>
+          <Link to={`/person/${data.id}`}>
             <ItemImage
               image={data.profile_path}
               name={data.name}

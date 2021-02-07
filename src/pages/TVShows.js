@@ -16,21 +16,21 @@ const TVShows = () => {
   let params;
   let title;
   switch (path) {
-    case "/popular-tv-shows":
+    case "/tv-shows-popular":
       params = `/tv/popular?api_key=${apiKey}&language=en-US&page=${page}`;
       title = "Popular TV shows.";
       break;
-    case "/top-rated-tv-shows":
+    case "/tv-shows-top-rated":
       params = `/tv/top_rated?api_key=${apiKey}&language=en-US&page=${page}`;
       title = "Top rated TV shows.";
       break;
-    case "/this-week-tv-shows":
+    case "/tv-shows-this-week":
       params = `/tv/on_the_air?api_key=${apiKey}&language=en-US&page=${page}`;
-      title = "TV shows on the air this week.";
+      title = "On the air this week.";
       break;
-    case "/today-tv-shows":
+    case "/tv-shows-today":
       params = `/tv/airing_today?api_key=${apiKey}&language=en-US&page=${page}`;
-      title = "TV shows on the air today.";
+      title = "On the air today.";
       break;
     default:
       break;

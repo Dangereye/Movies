@@ -42,7 +42,7 @@ const MovieHeader = ({ details, credits }) => {
               <span>{details.vote_count} votes.</span>
             </div>
             <h3>Director</h3>
-            <p>{director.name ? director.name : "Unknown"}</p>
+            <p>{director !== undefined ? director.name : "Unknown"}</p>
           </div>
         </div>
       </div>

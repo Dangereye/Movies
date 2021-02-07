@@ -60,6 +60,12 @@ button.homepage,
   border-radius: 2.5rem;
 }
 
+button:hover,
+.btn:hover {
+  -webkit-transform: translateY(-2px);
+          transform: translateY(-2px);
+}
+
 button.history-previous-page,
 .btn.history-previous-page {
   padding: 1rem 0;
@@ -83,12 +89,6 @@ button.history-previous-page span,
 button:focus,
 .btn:focus {
   outline: none;
-}
-
-button:hover,
-.btn:hover {
-  -webkit-transform: translateY(-2px);
-          transform: translateY(-2px);
 }
 
 button + button,
@@ -136,6 +136,13 @@ body {
       grid-template-rows: 1fr auto;
 }
 
+.container {
+  margin: 0 auto;
+  padding: 0;
+  width: 100%;
+  max-width: 1024px;
+}
+
 main {
   width: 100%;
   padding-top: 56px;
@@ -152,14 +159,8 @@ main section .container {
   padding: 4rem 0;
 }
 
-main .container {
-  margin: 0 auto;
-  padding: 0;
-  width: 100%;
-  max-width: 1024px;
-}
-
-main .history-previous-page {
+main div.history-previous-page {
+  padding: 0 clamp(1.6rem, 2.5vw, 4rem);
   background-color: #dedede;
 }
 
@@ -281,6 +282,125 @@ main span.group + span.group::before {
   }
 }
 
+.search-bar {
+  width: 100%;
+  padding: 0 clamp(1.6rem, 2.5vw, 4rem);
+  background-color: #fff;
+  border-bottom: 1px solid #dedede;
+  position: fixed;
+  top: 56px;
+  left: 0;
+  z-index: 998;
+}
+
+.search-bar form {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.search-bar form input {
+  margin-left: 1rem;
+  width: 100%;
+  padding: 1.3rem 0;
+  font-size: 1.6rem;
+  border: none;
+  outline: none;
+}
+
+.search-bar form .close-search {
+  width: 24px;
+  height: 24px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  cursor: pointer;
+}
+
+.search-bar form ::-webkit-input-placeholder {
+  color: #ccc;
+}
+
+.search-bar form :-ms-input-placeholder {
+  color: #ccc;
+}
+
+.search-bar form ::-ms-input-placeholder {
+  color: #ccc;
+}
+
+.search-bar form ::placeholder {
+  color: #ccc;
+}
+
+.results {
+  width: 100%;
+  padding: 0 clamp(1.6rem, 2.5vw, 4rem);
+  position: fixed;
+  top: 101px;
+  left: 0;
+  background-color: rgba(255, 255, 255, 0.95);
+}
+
+.results .search-result {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  padding: 0.4rem 0.8rem;
+  color: #333;
+  -webkit-transition: 0.4s;
+  transition: 0.4s;
+}
+
+.results .search-result .title-group {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.results .search-result .title-group .title-icon {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  width: 25px;
+  height: 25px;
+}
+
+.results .search-result .title-group .title-icon svg {
+  width: 16px;
+  height: 16px;
+}
+
+.results .search-result:hover {
+  background-color: #e4f6ff;
+}
+
 #mobile-menu {
   width: 100%;
   height: 100%;
@@ -346,6 +466,24 @@ main span.group + span.group::before {
   margin: 0 auto;
   width: 100%;
   max-width: 1024px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.desktop-categories .container .search {
+  margin-right: 2rem;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: left;
+      -ms-flex-pack: left;
+          justify-content: left;
+  width: 24px;
+  cursor: pointer;
 }
 
 .desktop-categories .container ul {
@@ -689,6 +827,33 @@ header.bg-image::after {
 
 .episodes .episode .details h2 {
   font-size: 1.6rem;
+}
+
+.spinner {
+  -webkit-animation: spinner 1s linear infinite forwards;
+          animation: spinner 1s linear infinite forwards;
+}
+
+@-webkit-keyframes spinner {
+  from {
+    -webkit-transform: rotate(0);
+            transform: rotate(0);
+  }
+  to {
+    -webkit-transform: rotate(360deg);
+            transform: rotate(360deg);
+  }
+}
+
+@keyframes spinner {
+  from {
+    -webkit-transform: rotate(0);
+            transform: rotate(0);
+  }
+  to {
+    -webkit-transform: rotate(360deg);
+            transform: rotate(360deg);
+  }
 }
 
 #footer {

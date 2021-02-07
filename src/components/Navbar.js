@@ -2,7 +2,7 @@ import React, { useEffect } from "react";
 import { MdLocalMovies } from "react-icons/md";
 import { Link } from "react-router-dom";
 
-const Navbar = ({ open, toggle }) => {
+const Navbar = ({ menuOpen, menuToggle }) => {
   useEffect(() => {
     window.scrollTo(0, 0);
   });
@@ -16,24 +16,25 @@ const Navbar = ({ open, toggle }) => {
         </Link>
         <ul className="desktop-menu">
           <li className="link-item">
-            <Link to="/popular-movies" className="link">
+            <Link to="/movies-popular" className="link">
               Movies
             </Link>
           </li>
           <li className="link-item">
-            <Link to="/popular-tv-shows" className="link">
+            <Link to="/tv-shows-popular" className="link">
               TV Shows
             </Link>
           </li>
           <li className="link-item">
-            <Link to="/popular-people" className="link">
+            <Link to="/people-popular" className="link">
               People
             </Link>
           </li>
         </ul>
+
         <div
-          className={open ? "mobile-menu open" : "mobile-menu"}
-          onClick={() => toggle(!open)}
+          className={menuOpen ? "mobile-menu open" : "mobile-menu"}
+          onClick={() => menuToggle(!menuOpen)}
         >
           <div></div>
           <div></div>

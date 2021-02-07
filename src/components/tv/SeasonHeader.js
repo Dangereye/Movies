@@ -4,7 +4,6 @@ import Overview from "../shared/Overview";
 import Year from "../shared/Year";
 
 const SeasonHeader = ({ details }) => {
-  console.log(details);
   return (
     <header>
       <div className="container">

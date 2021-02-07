@@ -1,8 +1,12 @@
 import React from "react";
-import { useHistory } from "react-router-dom";
+import { useHistory, useLocation, useParams } from "react-router-dom";
 
 const NotFound = () => {
+  const location = useLocation();
+  const params = useParams();
   const history = useHistory();
+  console.log("Location", location);
+  console.log("Params", params);
   return (
     <section>
       <div className="container">

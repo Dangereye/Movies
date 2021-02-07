@@ -16,19 +16,19 @@ const Movies = () => {
   let params;
   let title;
   switch (path) {
-    case "/popular-movies":
+    case "/movies-popular":
       params = `/movie/popular?api_key=${apiKey}&language=en-US&page=${page}`;
       title = "Popular movies";
       break;
-    case "/in-theatres-movies":
+    case "/movies-in-theatres":
       params = `/movie/now_playing?api_key=${apiKey}&language=en-US&page=${page}`;
-      title = "Movies playing in theatres";
+      title = "Playing in theatres";
       break;
-    case "/top-rated-movies":
+    case "/movies-top-rated":
       params = `/movie/top_rated?api_key=${apiKey}&language=en-US&page=${page}`;
       title = "Top rated movies";
       break;
-    case "/upcoming-movies":
+    case "/movies-upcoming":
       params = `/movie/upcoming?api_key=${apiKey}&language=en-US&page=${page}`;
       title = "Upcoming movies";
       break;
@@ -37,7 +37,8 @@ const Movies = () => {
   }
   const { isLoading, isError, isSuccess, data } = useQuery(
     [path, path, page],
-    () => fetchData(params)
+    () => fetchData(params),
+    { staleTime: 1000 * 60 * 60 }
   );
   if (isLoading) {
     return <DataStatus text="Just a moment.." />;
