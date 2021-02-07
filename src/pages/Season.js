@@ -29,17 +29,22 @@ const Season = () => {
     );
   }
   if (seasonDetails.isSuccess && seasonCredits.isSuccess) {
+    console.log("Details", seasonDetails);
     return (
       <>
         <HistoryPreviousPage />
         <SeasonHeader details={seasonDetails.data} />
-        <GridList
-          title="Cast members"
-          list={seasonCredits.data.cast}
-          path="/person"
-          totalResults={null}
-        />
-        <Episodes details={seasonDetails.data} />
+        {seasonCredits.data.cast.length > 0 && (
+          <GridList
+            title="Cast members"
+            list={seasonCredits.data.cast}
+            path="/person"
+            totalResults={null}
+          />
+        )}
+        {seasonDetails.data.episodes.length > 0 && (
+          <Episodes list={seasonDetails.data.episodes} />
+        )}
       </>
     );
   }

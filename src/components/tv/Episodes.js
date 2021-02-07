@@ -3,13 +3,13 @@ import ItemImage from "../shared/ItemImage";
 import Overview from "../shared/Overview";
 import StarRating from "../shared/StarRating";
 
-const Episodes = ({ details }) => {
+const Episodes = ({ list }) => {
   return (
     <section>
       <div className="container">
         <h2>Episodes</h2>
         <div className="episodes">
-          {details.episodes.map((episode, index) => {
+          {list.map((episode, index) => {
             return (
               <div className="episode" key={`Episode${index}`}>
                 <div className="image">
