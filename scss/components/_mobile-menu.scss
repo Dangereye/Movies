@@ -15,7 +15,52 @@
     width: 100%;
     max-width: $pageWidth;
     padding: $containerPadding;
+    .search {
+      margin-bottom: 2rem;
+      p {
+        color: #fff;
+        cursor: pointer;
+      }
+    }
 
+    .search-bar-mobile {
+      margin: 1rem 0 2rem 0;
+      width: 100%;
+      padding: $pagePadding;
+      background-color: #fff;
+      border-bottom: 1px solid $bgGrey;
+
+      .container {
+        padding: 0;
+
+        form {
+          display: flex;
+          align-items: center;
+
+          input {
+            margin-left: 1rem;
+            width: 100%;
+            padding: 1.3rem 0;
+            font-size: 1.6rem;
+            border: none;
+            outline: none;
+          }
+
+          .close-search {
+            width: 24px;
+            height: 24px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+          }
+
+          ::placeholder {
+            color: #ccc;
+          }
+        }
+      }
+    }
     .mobile-menu {
       > li:not(:last-child) {
         margin-bottom: 2rem;

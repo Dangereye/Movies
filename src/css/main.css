@@ -320,7 +320,7 @@ main span.group + span.group::before {
   }
 }
 
-.search-bar {
+.search-bar-desktop {
   width: 100%;
   padding: 0 clamp(1.6rem, 2.5vw, 4rem);
   background-color: #fff;
@@ -331,7 +331,7 @@ main span.group + span.group::before {
   z-index: 998;
 }
 
-.search-bar form {
+.search-bar-desktop form {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -340,7 +340,7 @@ main span.group + span.group::before {
           align-items: center;
 }
 
-.search-bar form input {
+.search-bar-desktop form input {
   margin-left: 1rem;
   width: 100%;
   padding: 1.3rem 0;
@@ -349,7 +349,7 @@ main span.group + span.group::before {
   outline: none;
 }
 
-.search-bar form .close-search {
+.search-bar-desktop form .close-search {
   width: 24px;
   height: 24px;
   display: -webkit-box;
@@ -364,20 +364,26 @@ main span.group + span.group::before {
   cursor: pointer;
 }
 
-.search-bar form ::-webkit-input-placeholder {
+.search-bar-desktop form ::-webkit-input-placeholder {
   color: #ccc;
 }
 
-.search-bar form :-ms-input-placeholder {
+.search-bar-desktop form :-ms-input-placeholder {
   color: #ccc;
 }
 
-.search-bar form ::-ms-input-placeholder {
+.search-bar-desktop form ::-ms-input-placeholder {
   color: #ccc;
 }
 
-.search-bar form ::placeholder {
+.search-bar-desktop form ::placeholder {
   color: #ccc;
+}
+
+@media (max-width: 500px) {
+  .search-bar-desktop {
+    display: none;
+  }
 }
 
 .results {
@@ -439,6 +445,12 @@ main span.group + span.group::before {
   background-color: #e4f6ff;
 }
 
+@media (max-width: 500px) {
+  .results {
+    display: none;
+  }
+}
+
 #mobile-menu {
   width: 100%;
   height: 100%;
@@ -459,6 +471,76 @@ main span.group + span.group::before {
   width: 100%;
   max-width: 1024px;
   padding: 4rem 0;
+}
+
+#mobile-menu .container .search {
+  margin-bottom: 2rem;
+}
+
+#mobile-menu .container .search p {
+  color: #fff;
+  cursor: pointer;
+}
+
+#mobile-menu .container .search-bar-mobile {
+  margin: 1rem 0 2rem 0;
+  width: 100%;
+  padding: 0 clamp(1.6rem, 2.5vw, 4rem);
+  background-color: #fff;
+  border-bottom: 1px solid #dedede;
+}
+
+#mobile-menu .container .search-bar-mobile .container {
+  padding: 0;
+}
+
+#mobile-menu .container .search-bar-mobile .container form {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+#mobile-menu .container .search-bar-mobile .container form input {
+  margin-left: 1rem;
+  width: 100%;
+  padding: 1.3rem 0;
+  font-size: 1.6rem;
+  border: none;
+  outline: none;
+}
+
+#mobile-menu .container .search-bar-mobile .container form .close-search {
+  width: 24px;
+  height: 24px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  cursor: pointer;
+}
+
+#mobile-menu .container .search-bar-mobile .container form ::-webkit-input-placeholder {
+  color: #ccc;
+}
+
+#mobile-menu .container .search-bar-mobile .container form :-ms-input-placeholder {
+  color: #ccc;
+}
+
+#mobile-menu .container .search-bar-mobile .container form ::-ms-input-placeholder {
+  color: #ccc;
+}
+
+#mobile-menu .container .search-bar-mobile .container form ::placeholder {
+  color: #ccc;
 }
 
 #mobile-menu .container .mobile-menu > li:not(:last-child) {

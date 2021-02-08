@@ -6,7 +6,7 @@ const MobileCategories = ({ categories, open, toggle }) => {
     <div className="mobile-categories">
       <ul>
         {categories.map((category, index) => (
-          <li key={category.name}>
+          <li key={`category.name-${index}`}>
             <Link to={category.path} onClick={() => toggle(!open)}>
               {category.name}
             </Link>

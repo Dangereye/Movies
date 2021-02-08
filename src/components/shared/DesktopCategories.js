@@ -27,7 +27,11 @@ const DesktopCategories = ({ categories, setPage }) => {
         </div>
       </div>
       {searchBarIsOpen ? (
-        <SearchBar open={searchBarIsOpen} toggle={setSearchBarIsOpen} />
+        <SearchBar
+          searchBarIsOpen={searchBarIsOpen}
+          setSearchBarIsOpen={setSearchBarIsOpen}
+          version="desktop"
+        />
       ) : null}
     </>
   );

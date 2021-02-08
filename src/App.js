@@ -19,7 +19,10 @@ const App = () => {
   return (
     <div id="app">
       <Navbar menuOpen={mobileMenuIsOpen} menuToggle={setMobileMenuIsOpen} />
-      <MobileMenu open={mobileMenuIsOpen} toggle={setMobileMenuIsOpen} />
+      <MobileMenu
+        menuOpen={mobileMenuIsOpen}
+        menuToggle={setMobileMenuIsOpen}
+      />
       <main>
         <Switch>
           <Route path="/" exact component={Home} />

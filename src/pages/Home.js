@@ -2,7 +2,6 @@ import React from "react";
 import { useQuery } from "react-query";
 import { fetchData } from "../api/FetchData";
 import DataStatus from "../components/shared/DataStatus";
-import SearchBar from "../components/shared/SearchBar";
 
 const Home = () => {
   const apiKey = process.env.REACT_APP_KEY;
@@ -21,7 +20,7 @@ const Home = () => {
   if (latestMovie.isSuccess) {
     return (
       <>
-        <SearchBar />
+        <h1>Home</h1>
       </>
     );
   }
