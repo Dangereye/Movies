@@ -52,6 +52,27 @@ main {
     background-color: $bgGrey;
   }
 
+  div.search-options-bar {
+    padding: $pagePadding;
+    background-color: $bgGrey;
+
+    .container {
+      display: flex;
+      align-items: center;
+      ul {
+        margin-left: 2rem;
+        display: flex;
+        li:not(:last-child) {
+          margin-right: 2rem;
+        }
+        li {
+          padding: 1rem 0;
+          cursor: pointer;
+        }
+      }
+    }
+  }
+
   span,
   span.group {
     font-size: 1.4rem;

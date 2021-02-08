@@ -5,6 +5,12 @@ html {
   line-height: 1.618;
 }
 
+button,
+.btn {
+  font-family: "Montserrat", sans-serif;
+  font-size: 1.6rem;
+}
+
 h1 {
   line-height: 1.2;
   margin-bottom: 1rem;
@@ -38,6 +44,7 @@ button,
 .btn {
   display: inline-block;
   padding: 1rem 2rem;
+  font-family: "Montserrat", sans-serif;
   font-size: 1.6rem;
   font-weight: 500;
   border: none;
@@ -84,6 +91,7 @@ button.history-previous-page,
 button.history-previous-page span,
 .btn.history-previous-page span {
   margin-left: 5px;
+  font-size: 1.6rem;
 }
 
 button:focus,
@@ -162,6 +170,36 @@ main section .container {
 main div.history-previous-page {
   padding: 0 clamp(1.6rem, 2.5vw, 4rem);
   background-color: #dedede;
+}
+
+main div.search-options-bar {
+  padding: 0 clamp(1.6rem, 2.5vw, 4rem);
+  background-color: #dedede;
+}
+
+main div.search-options-bar .container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+main div.search-options-bar .container ul {
+  margin-left: 2rem;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+main div.search-options-bar .container ul li:not(:last-child) {
+  margin-right: 2rem;
+}
+
+main div.search-options-bar .container ul li {
+  padding: 1rem 0;
+  cursor: pointer;
 }
 
 main span,

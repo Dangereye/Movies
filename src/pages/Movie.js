@@ -16,6 +16,9 @@ const Movie = () => {
   const movieDetails = useQuery(["movieDetails", id], () =>
     fetchData(`/movie/${id}?api_key=${apiKey}&language=en`)
   );
+  const movieImages = useQuery(["movieImages", id], () =>
+    fetchData(`/movie/${id}/images?api_key=${apiKey}&language=en`)
+  );
   const movieVideos = useQuery(["movieVideos", id], () =>
     fetchData(`/movie/${id}/videos?api_key=${apiKey}&language=en`)
   );
@@ -31,6 +34,7 @@ const Movie = () => {
 
   if (
     movieDetails.isLoading ||
+    movieImages.isLoading ||
     movieVideos.isLoading ||
     movieProviders.isLoading ||
     movieCredits.isLoading ||
@@ -41,6 +45,7 @@ const Movie = () => {
 
   if (
     movieDetails.isError ||
+    movieImages.isError ||
     movieVideos.isError ||
     movieProviders.isError ||
     movieCredits.isError ||
@@ -53,6 +58,7 @@ const Movie = () => {
 
   if (
     movieDetails.isSuccess &&
+    movieImages.isSuccess &&
     movieVideos.isSuccess &&
     movieProviders.isSuccess &&
     movieCredits.isSuccess &&
@@ -60,6 +66,7 @@ const Movie = () => {
   ) {
     return (
       <>
+        {console.log("Images: ", movieImages)}
         <HistoryPreviousPage />
         <MovieHeader details={movieDetails.data} credits={movieCredits.data} />
         {movieVideos.data.results.length > 0 && (

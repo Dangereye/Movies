@@ -2,6 +2,7 @@ button,
 .btn {
   display: inline-block;
   padding: 1rem 2rem;
+  font-family: "Montserrat", sans-serif;
   font-size: 1.6rem;
   font-weight: 500;
   border: none;
@@ -32,6 +33,7 @@ button,
     align-items: center;
     span {
       margin-left: 5px;
+      font-size: 1.6rem;
     }
   }
 

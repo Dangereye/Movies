@@ -3,7 +3,7 @@ import { useHistory } from "react-router-dom";
 import { IoIosArrowBack } from "react-icons/io";
 
 const PreviousPage = () => {
-  let history = useHistory();
+  const history = useHistory();
   return (
     <div className="history-previous-page">
       <div className="container">

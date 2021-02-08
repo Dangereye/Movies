@@ -20,7 +20,7 @@ const SearchBar = ({ open, toggle }) => {
     ["Search query", query],
     () =>
       fetchData(
-        `/search/multi?api_key=${apiKey}&language=en&query=${query}&page=${page}`
+        `/search/multi?api_key=${apiKey}&language=en&query=${query}&page=${page}&include_adult=false`
       ).then(setIsQuery(false)),
     { enabled: isQuery }
   );
@@ -39,7 +39,6 @@ const SearchBar = ({ open, toggle }) => {
       };
     }
   }, [query]);
-  console.log("Search: ", search);
   return (
     <>
       <div className="search-bar">
