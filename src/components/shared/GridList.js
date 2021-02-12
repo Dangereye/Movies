@@ -2,9 +2,9 @@ import React from "react";
 import CommaSeparatedNumber from "./CommaSeparatedNumber";
 import GridItem from "./GridItem";
 
-const GridList = ({ title, list, path, totalResults }) => {
+const GridList = ({ title, list, path, totalResults, color }) => {
   return (
-    <section>
+    <section style={{ backgroundColor: color ? color : "" }}>
       <div className="container">
         <h2>{title}</h2>
         <span>Showing {list.length}</span>

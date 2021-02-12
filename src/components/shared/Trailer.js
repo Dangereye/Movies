@@ -2,7 +2,7 @@ import React from "react";
 
 const Trailer = ({ video }) => {
   return (
-    <section>
+    <section id="trailer">
       <div className="container">
         <h2 className="mb2">{video.name}</h2>
         <div className="video-card">

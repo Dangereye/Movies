@@ -20,8 +20,8 @@ const App = () => {
     <div id="app">
       <Navbar menuOpen={mobileMenuIsOpen} menuToggle={setMobileMenuIsOpen} />
       <MobileMenu
-        menuOpen={mobileMenuIsOpen}
-        menuToggle={setMobileMenuIsOpen}
+        mobileMenuIsOpen={mobileMenuIsOpen}
+        setMobileMenuIsOpen={setMobileMenuIsOpen}
       />
       <main>
         <Switch>

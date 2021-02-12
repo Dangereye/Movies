@@ -10,13 +10,7 @@ import { BiLoaderAlt } from "react-icons/bi";
 import { VscChromeClose } from "react-icons/vsc";
 import SearchResult from "./SearchResult";
 
-const SearchBar = ({
-  searchBarIsOpen,
-  setSearchBarIsOpen,
-  version,
-  menuOpen,
-  menuToggle,
-}) => {
+const SearchBar = ({ setSearchBarIsOpen, version, setMobileMenuIsOpen }) => {
   const history = useHistory();
   const [query, setQuery] = useState("");
   const [isQuery, setIsQuery] = useState(false);
@@ -30,24 +24,29 @@ const SearchBar = ({
       ).then(setIsQuery(false)),
     { enabled: isQuery }
   );
-  const handleSubmit = () => {
-    if (query) {
-      history.push(`/search?query=${query}`);
-      setQuery("");
-      setSearchBarIsOpen(!searchBarIsOpen);
-      if (version === "mobile") {
-        menuToggle(!menuOpen);
-      }
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    console.log("Form submitted", version, query);
+    history.push(`/search?query=${query}`);
+    if (setMobileMenuIsOpen) {
+      setMobileMenuIsOpen(false);
     }
+    setQuery("");
   };
 
   const handleClick = () => {
+    if (setSearchBarIsOpen) {
+      setSearchBarIsOpen(false);
+    }
+
+    if (setMobileMenuIsOpen) {
+      setMobileMenuIsOpen(false);
+    }
     setQuery("");
-    setSearchBarIsOpen(!searchBarIsOpen);
   };
 
   useEffect(() => {
-    if (query !== "") {
+    if (query) {
       const makeRequest = setTimeout(setIsQuery(true), 500);
 
       return () => {
@@ -59,7 +58,7 @@ const SearchBar = ({
     <>
       <div className={`search-bar-${version}`}>
         <div className="container">
-          <form onSubmit={(e) => handleSubmit()}>
+          <form onSubmit={handleSubmit}>
             {search.isLoading ? (
               <BiLoaderAlt className="spinner" />
             ) : (
@@ -71,17 +70,18 @@ const SearchBar = ({
               placeholder="Movie, tv show or person."
               onChange={(e) => setQuery(e.target.value)}
             />
-            <div className="close-search" onClick={handleClick}>
-              <VscChromeClose />
-            </div>
+            {version === "desktop" && (
+              <div className="close-search" onClick={handleClick}>
+                <VscChromeClose />
+              </div>
+            )}
           </form>
         </div>
-      </div>
-      {version === "desktop" && (
-        <div className="results">
+        <div className={`results-${version}`}>
           <div className="container">
             {search.isSuccess &&
               search.data.results
+                .filter((result, index) => index < 12)
                 .sort((a, b) => {
                   const aDate = new Date(
                     a.first_air_date ? a.first_air_date : a.release_date
@@ -127,12 +127,13 @@ const SearchBar = ({
                           handleClick={handleClick}
                         />
                       )}
+                      {null}
                     </>
                   );
                 })}
           </div>
         </div>
-      )}
+      </div>
     </>
   );
 };

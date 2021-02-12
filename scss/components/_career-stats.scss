@@ -1,8 +1,9 @@
 #career-stats {
-  background-color: $bgGrey;
+  background-color: $secondaryColor;
   .container {
     .content {
       display: flex;
+      color: #fff;
 
       .stat-card {
         flex: 1 1 33%;

@@ -83,6 +83,7 @@ const Movie = () => {
             list={movieSimilar.data.results}
             path="/movie"
             totalResults={null}
+            color="#fff"
           />
         )}
       </>

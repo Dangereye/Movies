@@ -71,6 +71,7 @@ const Person = () => {
             list={personTvCredits.data.cast}
             path="/tv-show"
             totalResults={null}
+            color="#fff"
           />
         )}
       </>

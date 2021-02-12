@@ -15,7 +15,7 @@ const Biography = ({ data }) => {
     }
   }, [setBiography, data]);
   return (
-    <section id="biography">
+    <section style={{ backgroundColor: "#fff" }}>
       <div className="container">
         <h2>Biography continued</h2>
         {biography.map((paragraph, index) => {

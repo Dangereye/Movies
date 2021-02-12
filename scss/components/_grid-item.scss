@@ -1,7 +1,9 @@
 .grid-item {
   img {
+    min-width: 155px;
     width: 100%;
     max-width: 38rem;
+    min-height: 232px;
     height: auto;
     box-shadow: $boxShadow;
     border-radius: 10px;

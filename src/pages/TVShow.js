@@ -63,6 +63,7 @@ const TVShow = () => {
             list={tvShowSimilar.data.results}
             path="/tv-show"
             totalResults={null}
+            color="#fff"
           />
         )}
       </>

@@ -3,7 +3,7 @@ import GridItem from "../shared/GridItem";
 
 const Seasons = ({ details }) => {
   return (
-    <section id="seasons">
+    <section style={{ backgroundColor: "#fff" }}>
       <div className="container">
         <h2>
           {details.seasons.length} Season(s) - {details.status}

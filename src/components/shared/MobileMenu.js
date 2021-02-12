@@ -1,27 +1,21 @@
-import React, { useState } from "react";
+import React from "react";
 import { Link, useLocation } from "react-router-dom";
 import { categories } from "../../data/categories";
 import MobileCategories from "./MobileCategories";
 import SearchBar from "./SearchBar";
 
-const MobileMenu = ({ menuOpen, menuToggle }) => {
+const MobileMenu = ({ mobileMenuIsOpen, setMobileMenuIsOpen }) => {
   const { pathname } = useLocation();
-  const [searchBarIsOpen, setSearchBarIsOpen] = useState(false);
 
   return (
-    <div id="mobile-menu" className={menuOpen ? "open" : ""}>
+    <div id="mobile-menu" className={mobileMenuIsOpen ? "open" : ""}>
       <div className="container">
         <div className="search">
-          <p onClick={() => setSearchBarIsOpen(!searchBarIsOpen)}>Search</p>
-          {searchBarIsOpen ? (
-            <SearchBar
-              searchBarIsOpen={searchBarIsOpen}
-              setSearchBarIsOpen={setSearchBarIsOpen}
-              version="mobile"
-              menuToggle={menuToggle}
-              menuOpen={menuOpen}
-            />
-          ) : null}
+          <p>Search</p>
+          <SearchBar
+            version="mobile"
+            setMobileMenuIsOpen={setMobileMenuIsOpen}
+          />
         </div>
 
         <ul className="mobile-menu">
@@ -30,8 +24,7 @@ const MobileMenu = ({ menuOpen, menuToggle }) => {
             {pathname.includes("movies") ? (
               <MobileCategories
                 categories={categories.movies}
-                menuOpen={menuOpen}
-                menuToggle={menuToggle}
+                setMobileMenuIsOpen={setMobileMenuIsOpen}
               />
             ) : null}
           </li>
@@ -41,13 +34,15 @@ const MobileMenu = ({ menuOpen, menuToggle }) => {
             {pathname.includes("tv-shows") ? (
               <MobileCategories
                 categories={categories.tv}
-                menuOpen={menuOpen}
-                menuToggle={menuToggle}
+                setMobileMenuIsOpen={setMobileMenuIsOpen}
               />
             ) : null}
           </li>
           <li className="link-item">
-            <Link to="/people-popular" onClick={() => menuToggle(!menuOpen)}>
+            <Link
+              to="/people-popular"
+              onClick={() => setMobileMenuIsOpen(false)}
+            >
               People
             </Link>
           </li>
