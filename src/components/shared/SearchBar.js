@@ -26,7 +26,6 @@ const SearchBar = ({ setSearchBarIsOpen, version, setMobileMenuIsOpen }) => {
   );
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log("Form submitted", version, query);
     history.push(`/search?query=${query}`);
     if (setMobileMenuIsOpen) {
       setMobileMenuIsOpen(false);
