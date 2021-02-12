@@ -59,7 +59,7 @@ const Person = () => {
         )}
         {personMovieCredits.data.cast.length > 0 && (
           <GridList
-            title="Movie credits"
+            title="Movie credits."
             list={personMovieCredits.data.cast}
             path="/movie"
             totalResults={null}
@@ -67,7 +67,7 @@ const Person = () => {
         )}
         {personTvCredits.data.cast.length > 0 && (
           <GridList
-            title="TV credits"
+            title="TV credits."
             list={personTvCredits.data.cast}
             path="/tv-show"
             totalResults={null}

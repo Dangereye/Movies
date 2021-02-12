@@ -31,7 +31,7 @@ const People = () => {
         <DesktopCategories categories={categories.people} setPage={setPage} />
 
         <GridList
-          title="Popular people"
+          title="Popular people."
           list={data.results}
           path="/person"
           totalResults={data.total_results}

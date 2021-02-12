@@ -71,7 +71,7 @@ const Movie = () => {
         )}
         {movieCredits.data.cast.length > 0 && (
           <GridList
-            title="Cast members"
+            title="Cast members."
             list={movieCredits.data.cast}
             path="/person"
             totalResults={movieCredits.data.total_results}

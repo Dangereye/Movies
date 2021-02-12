@@ -10,9 +10,10 @@ const NotFound = () => {
   return (
     <section>
       <div className="container">
-        <h2>404 - Page not found! </h2>
+        <h2>404 - Page not found!</h2>
         <p>
-          This is awkward. The page doesn't exist, or some other error occurred.
+          This is awkward. The page either doesn't exist, or some other error
+          occurred.
         </p>
         <button onClick={() => history.goBack()}>Go back</button>
       </div>

@@ -35,7 +35,7 @@ const Season = () => {
         <SeasonHeader details={seasonDetails.data} />
         {seasonCredits.data.cast.length > 0 && (
           <GridList
-            title="Cast members"
+            title="Cast members."
             list={seasonCredits.data.cast}
             path="/person"
             totalResults={null}

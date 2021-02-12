@@ -18,19 +18,19 @@ const Movies = () => {
   switch (path) {
     case "/movies-popular":
       params = `/movie/popular?api_key=${apiKey}&language=en-US&page=${page}`;
-      title = "Popular movies";
+      title = "Popular movies.";
       break;
     case "/movies-in-theatres":
       params = `/movie/now_playing?api_key=${apiKey}&language=en-US&page=${page}`;
-      title = "Playing in theatres";
+      title = "Playing in theatres.";
       break;
     case "/movies-top-rated":
       params = `/movie/top_rated?api_key=${apiKey}&language=en-US&page=${page}`;
-      title = "Top rated movies";
+      title = "Top rated movies.";
       break;
     case "/movies-upcoming":
       params = `/movie/upcoming?api_key=${apiKey}&language=en-US&page=${page}`;
-      title = "Upcoming movies";
+      title = "Upcoming movies.";
       break;
     default:
       break;

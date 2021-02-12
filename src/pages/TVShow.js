@@ -51,7 +51,7 @@ const TVShow = () => {
         )}
         {tvShowCredits.data.cast.length > 0 && (
           <GridList
-            title="Cast members"
+            title="Cast members."
             list={tvShowCredits.data.cast}
             path="/person"
             totalResults={null}
@@ -59,7 +59,7 @@ const TVShow = () => {
         )}
         {tvShowSimilar.data.results.length > 0 && (
           <GridList
-            title="Similar shows"
+            title="You may also like.."
             list={tvShowSimilar.data.results}
             path="/tv-show"
             totalResults={null}
