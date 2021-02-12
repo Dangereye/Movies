@@ -77,62 +77,64 @@ const SearchBar = ({ setSearchBarIsOpen, version, setMobileMenuIsOpen }) => {
             )}
           </form>
         </div>
-        <div className={`results-${version}`}>
-          <div className="container">
-            {search.isSuccess &&
-              search.data.results
-                .filter((result, index) => index < 12)
-                .sort((a, b) => {
-                  const aDate = new Date(
-                    a.first_air_date ? a.first_air_date : a.release_date
-                  );
-                  const bDate = new Date(
-                    b.first_air_date ? b.first_air_date : b.release_date
-                  );
-                  return bDate - aDate;
-                })
-                .map((result, index) => {
-                  return (
-                    <>
-                      {result.media_type === "tv" && (
-                        <SearchResult
-                          key={`tv-${index}`}
-                          path={`/tv-show/${result.id}`}
-                          icon={<CgScreen />}
-                          name={result.name}
-                          department={null}
-                          date={result.first_air_date}
-                          handleClick={handleClick}
-                        />
-                      )}
-                      {result.media_type === "person" && (
-                        <SearchResult
-                          key={`person-${index}`}
-                          path={`/person/${result.id}`}
-                          icon={<ImUser />}
-                          name={result.name}
-                          department={result.known_for_department}
-                          date={null}
-                          handleClick={handleClick}
-                        />
-                      )}
-                      {result.media_type === "movie" && (
-                        <SearchResult
-                          key={`movie-${index}`}
-                          path={`/movie/${result.id}`}
-                          icon={<MdLocalMovies />}
-                          name={result.title}
-                          department={null}
-                          date={result.release_date}
-                          handleClick={handleClick}
-                        />
-                      )}
-                      {null}
-                    </>
-                  );
-                })}
+        {query && (
+          <div className={`results-${version}`}>
+            <div className="container">
+              {search.isSuccess &&
+                search.data.results
+                  .filter((result, index) => index < 12)
+                  .sort((a, b) => {
+                    const aDate = new Date(
+                      a.first_air_date ? a.first_air_date : a.release_date
+                    );
+                    const bDate = new Date(
+                      b.first_air_date ? b.first_air_date : b.release_date
+                    );
+                    return bDate - aDate;
+                  })
+                  .map((result, index) => {
+                    return (
+                      <>
+                        {result.media_type === "tv" && (
+                          <SearchResult
+                            key={`tv-${index}`}
+                            path={`/tv-show/${result.id}`}
+                            icon={<CgScreen />}
+                            name={result.name}
+                            department={null}
+                            date={result.first_air_date}
+                            handleClick={handleClick}
+                          />
+                        )}
+                        {result.media_type === "person" && (
+                          <SearchResult
+                            key={`person-${index}`}
+                            path={`/person/${result.id}`}
+                            icon={<ImUser />}
+                            name={result.name}
+                            department={result.known_for_department}
+                            date={null}
+                            handleClick={handleClick}
+                          />
+                        )}
+                        {result.media_type === "movie" && (
+                          <SearchResult
+                            key={`movie-${index}`}
+                            path={`/movie/${result.id}`}
+                            icon={<MdLocalMovies />}
+                            name={result.title}
+                            department={null}
+                            date={result.release_date}
+                            handleClick={handleClick}
+                          />
+                        )}
+                        {null}
+                      </>
+                    );
+                  })}
+            </div>
           </div>
-        </div>
+        )}
       </div>
     </>
   );

@@ -10,7 +10,7 @@ const Navbar = ({ menuOpen, menuToggle }) => {
   return (
     <nav id="navbar">
       <div className="container">
-        <Link to="/" className="logo">
+        <Link to="/" className="logo" onClick={() => menuToggle(false)}>
           <MdLocalMovies />
           <span>Movies</span>
         </Link>

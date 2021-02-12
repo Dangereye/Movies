@@ -90,13 +90,15 @@ const Search = () => {
             totalResults={searchPeople.data.total_results}
           />
         )}
-        <Pagination
-          page={page}
-          setPage={setPage}
-          pages={pages}
-          setPages={setPages}
-          totalPages={totalPages}
-        />
+        {pages > 1 && (
+          <Pagination
+            page={page}
+            setPage={setPage}
+            pages={pages}
+            setPages={setPages}
+            totalPages={totalPages}
+          />
+        )}
       </>
     );
   }
