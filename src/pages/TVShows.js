@@ -12,7 +12,6 @@ const TVShows = () => {
   const apiKey = process.env.REACT_APP_KEY;
   const { pathname: path } = useLocation();
   const [page, setPage] = useState(1);
-  const [pages, setPages] = useState(1);
   let params;
   let title;
   switch (path) {
@@ -61,8 +60,6 @@ const TVShows = () => {
         <Pagination
           page={page}
           setPage={setPage}
-          pages={pages}
-          setPages={setPages}
           totalPages={data.total_pages}
         />
       </>

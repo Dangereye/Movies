@@ -10,7 +10,6 @@ import Pagination from "../components/shared/Pagination";
 const People = () => {
   const apiKey = process.env.REACT_APP_KEY;
   const [page, setPage] = useState(1);
-  const [pages, setPages] = useState(1);
   const { isLoading, isError, isSuccess, data } = useQuery(
     ["People", page],
     () =>
@@ -39,8 +38,6 @@ const People = () => {
         <Pagination
           page={page}
           setPage={setPage}
-          pages={pages}
-          setPages={setPages}
           totalPages={data.total_pages}
         />
       </>

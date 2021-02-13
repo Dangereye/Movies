@@ -1,15 +1,65 @@
 #pagination {
   padding: 2rem 0;
   display: flex;
-  flex-direction: column;
   justify-content: center;
   align-items: center;
-
-  p {
-    text-align: center;
-  }
-
   .buttons {
-    padding-top: 2rem;
+    width: max-content;
+    background-color: #fff;
+    padding: 1rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 5rem;
+    box-shadow: $boxShadow;
+
+    button {
+      margin: 0;
+      padding: 0 2rem;
+      display: flex;
+      align-items: center;
+      &:hover {
+        color: #fff;
+        background-color: $secondaryColor;
+        transform: translateY(0);
+      }
+    }
+    .pagination-prev {
+      margin-right: 0.5rem;
+      border-radius: 5rem 0 0 5rem;
+    }
+    .pagination-next {
+      margin-left: 0.5rem;
+      border-radius: 0 5rem 5rem 0;
+    }
+
+    span,
+    div {
+      margin: 0 0.5rem;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 4rem;
+      height: 4rem;
+    }
+
+    span {
+      user-select: none;
+    }
+
+    div {
+      border-radius: 50%;
+      cursor: pointer;
+      transition: 0.4s;
+
+      &.active {
+        color: #fff;
+        background-color: $secondaryColor;
+      }
+      &:hover {
+        color: #fff;
+        background-color: $secondaryColor;
+      }
+    }
   }
 }

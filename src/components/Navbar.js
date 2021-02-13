@@ -1,12 +1,8 @@
-import React, { useEffect } from "react";
+import React from "react";
 import { MdLocalMovies } from "react-icons/md";
 import { Link } from "react-router-dom";
 
 const Navbar = ({ menuOpen, menuToggle }) => {
-  useEffect(() => {
-    window.scrollTo(0, 0);
-  });
-
   return (
     <nav id="navbar">
       <div className="container">

@@ -889,10 +889,6 @@ main span.group + span.group::before {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
@@ -901,12 +897,92 @@ main span.group + span.group::before {
           align-items: center;
 }
 
-#pagination p {
-  text-align: center;
+#pagination .buttons {
+  width: -webkit-max-content;
+  width: -moz-max-content;
+  width: max-content;
+  background-color: #fff;
+  padding: 1rem;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  border-radius: 5rem;
+  -webkit-box-shadow: 0 3px 9px rgba(0, 0, 0, 0.15), 0 15px 18px rgba(0, 0, 0, 0.15);
+          box-shadow: 0 3px 9px rgba(0, 0, 0, 0.15), 0 15px 18px rgba(0, 0, 0, 0.15);
 }
 
-#pagination .buttons {
-  padding-top: 2rem;
+#pagination .buttons button {
+  margin: 0;
+  padding: 0 2rem;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+#pagination .buttons button:hover {
+  color: #fff;
+  background-color: #209fe6;
+  -webkit-transform: translateY(0);
+          transform: translateY(0);
+}
+
+#pagination .buttons .pagination-prev {
+  margin-right: 0.5rem;
+  border-radius: 5rem 0 0 5rem;
+}
+
+#pagination .buttons .pagination-next {
+  margin-left: 0.5rem;
+  border-radius: 0 5rem 5rem 0;
+}
+
+#pagination .buttons span,
+#pagination .buttons div {
+  margin: 0 0.5rem;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  width: 4rem;
+  height: 4rem;
+}
+
+#pagination .buttons span {
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
+}
+
+#pagination .buttons div {
+  border-radius: 50%;
+  cursor: pointer;
+  -webkit-transition: 0.4s;
+  transition: 0.4s;
+}
+
+#pagination .buttons div.active {
+  color: #fff;
+  background-color: #209fe6;
+}
+
+#pagination .buttons div:hover {
+  color: #fff;
+  background-color: #209fe6;
 }
 
 header {

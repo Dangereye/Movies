@@ -14,7 +14,6 @@ const Search = () => {
   const query = params.get("query");
   const [category, setCategory] = useState("movies");
   const [page, setPage] = useState(1);
-  const [pages, setPages] = useState(1);
   let totalPages;
 
   const searchMovies = useQuery(["searchMovies", page, query], () =>
@@ -90,14 +89,8 @@ const Search = () => {
             totalResults={searchPeople.data.total_results}
           />
         )}
-        {pages > 1 && (
-          <Pagination
-            page={page}
-            setPage={setPage}
-            pages={pages}
-            setPages={setPages}
-            totalPages={totalPages}
-          />
+        {totalPages > 1 && (
+          <Pagination page={page} setPage={setPage} totalPages={totalPages} />
         )}
       </>
     );

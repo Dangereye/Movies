@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { categories } from "../../data/categories";
 import MobileCategories from "./MobileCategories";
@@ -6,6 +6,9 @@ import SearchBar from "./SearchBar";
 
 const MobileMenu = ({ mobileMenuIsOpen, setMobileMenuIsOpen }) => {
   const { pathname } = useLocation();
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  });
 
   return (
     <div id="mobile-menu" className={mobileMenuIsOpen ? "open" : ""}>
