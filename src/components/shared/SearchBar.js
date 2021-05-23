@@ -92,44 +92,45 @@ const SearchBar = ({ setSearchBarIsOpen, version, setMobileMenuIsOpen }) => {
                     return bDate - aDate;
                   })
                   .map((result, index) => {
-                    return (
-                      <>
-                        {result.media_type === "tv" && (
-                          <SearchResult
-                            key={`tv-${index}`}
-                            path={`/tv-show/${result.id}`}
-                            icon={<CgScreen />}
-                            name={result.name}
-                            department={null}
-                            date={result.first_air_date}
-                            handleClick={handleClick}
-                          />
-                        )}
-                        {result.media_type === "person" && (
-                          <SearchResult
-                            key={`person-${index}`}
-                            path={`/person/${result.id}`}
-                            icon={<ImUser />}
-                            name={result.name}
-                            department={result.known_for_department}
-                            date={null}
-                            handleClick={handleClick}
-                          />
-                        )}
-                        {result.media_type === "movie" && (
-                          <SearchResult
-                            key={`movie-${index}`}
-                            path={`/movie/${result.id}`}
-                            icon={<MdLocalMovies />}
-                            name={result.title}
-                            department={null}
-                            date={result.release_date}
-                            handleClick={handleClick}
-                          />
-                        )}
-                        {null}
-                      </>
-                    );
+                    if (result.media_type === "tv") {
+                      return (
+                        <SearchResult
+                          key={`tv-${index}`}
+                          path={`/tv-show/${result.id}`}
+                          icon={<CgScreen />}
+                          name={result.name}
+                          department={null}
+                          date={result.first_air_date}
+                          handleClick={handleClick}
+                        />
+                      );
+                    } else if (result.media_type === "person") {
+                      return (
+                        <SearchResult
+                          key={`person-${index}`}
+                          path={`/person/${result.id}`}
+                          icon={<ImUser />}
+                          name={result.name}
+                          department={result.known_for_department}
+                          date={null}
+                          handleClick={handleClick}
+                        />
+                      );
+                    } else if (result.media_type === "movie") {
+                      return (
+                        <SearchResult
+                          key={`movie-${index}`}
+                          path={`/movie/${result.id}`}
+                          icon={<MdLocalMovies />}
+                          name={result.title}
+                          department={null}
+                          date={result.release_date}
+                          handleClick={handleClick}
+                        />
+                      );
+                    } else {
+                      return null;
+                    }
                   })}
             </div>
           </div>
